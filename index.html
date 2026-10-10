@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,600&family=Nunito:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,600&family=Nunito:wght@400;600;700&display=optional"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/style.css" />
@@ -615,6 +615,10 @@ footer a:hover {
 .lead,
 .faq-head p {
   color: #5a4a4e;
+}
+/* Anti-CLS: reservar espacio antes de que carguen imágenes y fuentes */
+.hero-photo img {
+  aspect-ratio: 840 / 1260;
 }
     </style>
   </head>
