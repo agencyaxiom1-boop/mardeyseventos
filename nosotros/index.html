@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Nosotros | Empresa de organización de eventos en Surco, Lima | Mardeys Eventos</title>
+    <meta name="description" content="Conoce a Mardeys Eventos SAC, empresa de organización de eventos en Surco, Lima, Perú: bodas, quinceañeras y celebraciones con servicio completo." />
+    <meta name="theme-color" content="#b4636f" />
+    <link rel="canonical" href="https://mardeyseventos.com/nosotros/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,600&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+/* Sección "Lo que nos importa": foto de fondo (assets/img/celebracion.webp), sin capa de color */
+section.tint.values {
+  background:
+    url(../assets/img/celebracion.webp) center / cover no-repeat,
+    #7a4650;
+}
+section.tint.values {
+  padding-block: clamp(64px, 9vw, 120px);
+}
+.values-head {
+  text-align: center;
+  margin-bottom: clamp(30px, 4vw, 48px);
+}
+.values-head h2 {
+  display: inline-block;
+  margin: 0;
+  padding: 10px clamp(22px, 3.5vw, 40px) 14px;
+  color: var(--ink, #3a2a2e);
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(60, 20, 30, 0.15);
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.values-grid .v-card {
+  text-align: center;
+  padding: 34px 28px 32px;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  box-shadow: 0 14px 34px rgba(60, 20, 30, 0.18);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.values-grid .v-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(60, 20, 30, 0.26);
+}
+.v-ico {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--blush, #f7e4e5);
+  color: var(--rose, #b4636f);
+  display: grid;
+  place-items: center;
+}
+.v-ico svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.values-grid .v-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.7rem;
+}
+.values-grid .v-card p {
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+/* Pie de página (igual al del inicio) */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 36px;
+}
+footer h4 {
+  font: 600 1.4rem "Cormorant Garamond", Georgia, serif;
+  color: #f0c4ca;
+  margin: 0 0 14px;
+}
+.f-list,
+.f-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  font-size: 0.96rem;
+}
+.f-list li,
+.f-contact li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.f-ico {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  fill: none;
+  stroke: #f0c4ca;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.f-ico.sm {
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+}
+footer a {
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--rose);
+  border: 1.5px solid var(--edge, var(--line));
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: 700 0.9rem "Nunito", sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lang:hover {
+  background: var(--blush);
+}
+@media (max-width: 760px) {
+  .logo {
+    white-space: nowrap;
+    font-size: 1.5rem;
+  }
+  .lang {
+    padding: 7px 11px;
+  }
+}
+.story p {
+  color: var(--soft);
+  max-width: 70ch;
+  margin: 0 0 16px;
+}
+.story p:last-child {
+  margin-bottom: 0;
+}
+/* Nuestra historia: texto a la izquierda y corazón de collage a la derecha (assets/img/corazon-collage.webp) */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+.story-heart {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  justify-self: center;
+  filter: drop-shadow(0 18px 26px rgba(60, 20, 30, 0.18));
+}
+@media (max-width: 860px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+  .story-heart {
+    max-width: 420px;
+  }
+}
+/* Portada con foto (assets/img/nosotros.webp), H1 y título grande */
+/* La barra de menú flota sobre la foto: la portada ocupa también la parte de arriba */
+body header {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.about-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(94vh, 840px);
+  padding: 0 0 clamp(24px, 5vw, 56px);
+  background:
+    url(../assets/img/nosotros.webp) center / cover no-repeat,
+    #7a4650;
+}
+.ah-panel {
+  max-width: 660px;
+  padding: clamp(22px, 3vw, 34px) clamp(22px, 3.4vw, 40px);
+  background: rgba(30, 30, 34, 0.62);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 22px;
+  color: #fff;
+}
+.ah-panel h1 {
+  font: 700 clamp(1rem, 1.5vw, 1.2rem) / 1.35 "Nunito", sans-serif !important;
+  letter-spacing: 0.03em;
+  color: #f0c4ca !important;
+  margin: 0 0 8px !important;
+}
+.ah-title {
+  margin: 0 !important;
+  font: 600 clamp(2.8rem, 7vw, 5.6rem) / 0.98 "Cormorant Garamond", Georgia, serif !important;
+  text-transform: uppercase;
+  color: #fff !important;
+}
+@media (max-width: 760px) {
+  .about-hero {
+    min-height: 82vh;
+  }
+  .ah-panel {
+    max-width: none;
+  }
+}
+/* Título de la presentación (ahora h2, porque el h1 está en la portada) */
+h2.hl {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.05;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  margin: 0 0 18px;
+}
+h2.hl b {
+  font-weight: 500;
+}
+h2.hl span {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--rose);
+}
+h2.hl span.plain {
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
+}
+/* Presentación: fondo de foto en toda la sección (assets/img/fondo_mozos.webp) con corte curvo y los mozos encima (assets/img/mozos-jovenes.webp) */
+.about-intro {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(40px, 6vw, 80px);
+  padding-bottom: 0;
+}
+.about-intro .ai-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  background:
+    url(../assets/img/fondo_mozos.webp) center / cover no-repeat,
+    linear-gradient(160deg, #f3cfd3, #e9d3b6);
+  clip-path: url(#intro-clip);
+}
+.about-intro .wrap {
+  position: relative;
+  z-index: 1;
+}
+.about-intro .two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+.ai-text {
+  align-self: center;
+  padding-bottom: clamp(24px, 4vw, 60px);
+}
+.ai-people {
+  display: block;
+  width: min(100%, 600px);
+  height: auto;
+  justify-self: center;
+  align-self: end;
+  filter: drop-shadow(0 16px 20px rgba(60, 20, 30, 0.3));
+}
+@media (max-width: 860px) {
+  .about-intro .two {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .ai-text {
+    padding-bottom: 0;
+  }
+  .about-intro .ai-bg {
+    top: auto;
+    left: 0;
+    width: 100%;
+    height: calc(min(100vw - 32px, 440px) * 0.82);
+    clip-path: url(#intro-clip-m);
+  }
+  .ai-people {
+    width: min(100%, 440px);
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <nav class="nav" aria-label="Principal">
+          <a class="logo" href="../">Mardeys Eventos</a>
+          <div class="nav-right">
+            <ul>
+            <li><a href="../" data-en="Home">Inicio</a></li>
+            <li><a href="../servicios/" data-en="Services">Servicios</a></li>
+            <li><a href="../nosotros/" aria-current="page" data-en="About us">Nosotros</a></li>
+            <li><a href="../portafolio/" data-en="Portfolio">Portafolio</a></li>
+            <li><a href="../contacto/" data-en="Contact">Contacto</a></li>
+          </ul>
+            <button class="lang" id="lang" type="button" aria-label="Change language to English"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 3.9 5.8 3.9 9s-1.3 6.2-3.9 9c-2.6-2.8-3.9-5.8-3.9-9S9.4 5.8 12 3z"/></svg><span>EN</span></button>
+            <button class="burger" aria-label="Abrir menú" data-en-aria="Open menu" aria-expanded="false">☰</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="about-hero" aria-label="Quiénes somos" data-en-aria="Who we are">
+        <div class="wrap">
+          <div class="ah-panel">
+            <h1 data-en="Event planning company in Surco, Lima, Peru">Empresa de organización de eventos en Surco, Lima, Perú</h1>
+            <p class="ah-title" data-en="Who are we?">¿Quiénes somos?</p>
+          </div>
+        </div>
+      </section>
+      <section class="about-intro">
+        <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false"><defs><clipPath id="intro-clip" clipPathUnits="objectBoundingBox"><path d="M0.22,0 L1,0 L1,1 L0.22,1 C-0.07,0.82 -0.07,0.18 0.22,0 Z" /></clipPath><clipPath id="intro-clip-m" clipPathUnits="objectBoundingBox"><path d="M0,0.2 C0.25,0 0.55,0.16 0.78,0.07 C0.88,0.03 0.95,0.01 1,0 L1,1 L0,1 Z" /></clipPath></defs></svg>
+        <div class="ai-bg" aria-hidden="true"></div>
+        <div class="wrap two">
+          <div class="ai-text">
+            <h2 class="hl"><b data-en="We make">Hacemos</b> <span data-en="your celebration">realidad</span> <span class="plain" data-en="a reality">tu celebración</span></h2>
+            <p style="color: var(--soft)" data-en="We are Mardeys Eventos SAC, an events company based in Surco, Lima. We accompany couples, quinceañeras and families from the first idea to the last toast.">Somos Mardeys Eventos SAC, una empresa de eventos con base en Surco, Lima. Acompañamos a novios, quinceañeras y familias desde la idea hasta el último brindis.</p>
+            <p style="color: var(--soft)" data-en="We take care of the decoration, buffet, cake and service, so all you have to do is enjoy.">Cuidamos la decoración, el buffet, la torta y el servicio, para que tú solo te ocupes de disfrutar.</p>
+          </div>
+          <img class="ai-people" src="../assets/img/mozos-jovenes.webp" alt="Mozos jóvenes del equipo de Mardeys Eventos con chaleco gris y corbata azul" data-en-alt="Young waiters from the Mardeys Eventos team in grey vests and blue ties" width="960" height="947" loading="lazy" />
+        </div>
+      </section>
+      <!-- HISTORIA DE EJEMPLO: reemplazar por la historia real de Mardeys Eventos cuando esté lista -->
+      <section class="tint">
+        <div class="wrap story story-grid">
+          <div class="story-text">
+          <h2 data-en="Our story">Nuestra historia</h2>
+          <p data-en="Mardeys was born in Surco with a simple idea: celebrating should never be complicated. We started with buffets for family gatherings and, little by little, the families themselves asked us to take care of the decoration, the cake and the service too.">Mardeys nació en Surco con una idea sencilla: que celebrar no tenga que ser complicado. Empezamos con buffets para reuniones familiares y, poco a poco, las propias familias nos pidieron encargarnos también de la decoración, la torta y el servicio.</p>
+          <p data-en="Over the years we went from small gatherings to weddings, quinceañeras and graduation parties of every size. We added venues across different districts of Lima and built a team that knows every detail of the setup.">Con los años pasamos de reuniones pequeñas a bodas, quinceañeras y fiestas de promoción de todos los tamaños. Fuimos sumando locales en distintos distritos de Lima y un equipo que conoce cada detalle del montaje.</p>
+          <p data-en="Today, after more than 20 years, we still work the same way as on day one: listening to your idea, caring for every detail and being there on the day of your event.">Hoy, después de más de 20 años, seguimos trabajando igual que el primer día: escuchando tu idea, cuidando cada detalle y estando presentes el día de tu evento.</p>
+          </div>
+          <img class="story-heart" src="../assets/img/corazon-collage.webp" alt="Collage en forma de corazón con decoración, mesas de dulces, tortas, bodas y mozos de Mardeys Eventos" data-en-alt="Heart-shaped collage with decoration, dessert tables, cakes, weddings and waiters from Mardeys Eventos" width="1250" height="1250" loading="lazy" />
+        </div>
+      </section>
+      <section class="tint values">
+        <div class="wrap">
+          <div class="values-head">
+            <h2 data-en="What matters to us">Lo que nos importa</h2>
+          </div>
+          <div class="values-grid">
+            <div class="v-card"><div class="v-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M18.5 15l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg></div><h3 data-en="Attention to detail">Detalle</h3><p data-en="Every event is planned to measure, with no repeated templates.">Cada evento se piensa a la medida, sin plantillas repetidas.</p></div>
+            <div class="v-card"><div class="v-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div><h3 data-en="Punctuality">Puntualidad</h3><p data-en="Setup and service ready at the agreed time.">Montaje y servicio listos a la hora acordada.</p></div>
+            <div class="v-card"><div class="v-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div><h3 data-en="Personal care">Trato cercano</h3><p data-en="You always talk to real people, before and during your event.">Hablas siempre con personas, antes y durante tu evento.</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <a class="logo" href="../">Mardeys Eventos</a>
+          <p data-en="Mardeys Eventos SAC. Weddings, quinceañeras and celebrations with decoration, buffet and full service in Lima.">
+            Mardeys Eventos SAC. Bodas, quinceañeras y celebraciones con decoración, buffet y
+            servicio completo en Lima.
+          </p>
+          <div class="social">
+            <a
+              href="https://www.facebook.com/share/19fRWKrdeW/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              title="Facebook"
+              ><svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.6V3.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H8.8V13h2.7v8"
+                /></svg></a
+            ><a
+              href="https://www.instagram.com/mardeyseventos/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              title="Instagram"
+              ><svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none" /></svg></a
+            ><a
+              href="https://www.tiktok.com/@mardeys_eventos"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+              title="TikTok"
+              ><svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M14 3v11.2a3.7 3.7 0 1 1-3.7-3.7" />
+                <path d="M14 3c.3 2.5 2.1 4.3 4.7 4.6" /></svg
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h4 data-en="Services">Servicios</h4>
+          <ul class="f-list">
+            <li data-en="Decoration &amp; ambiance">Decoración y ambientación</li>
+            <li data-en="Buffet &amp; catering">Buffet y catering</li>
+            <li data-en="Waiters &amp; service staff">Mozos y personal de servicio</li>
+            <li data-en="Cakes &amp; dessert table">Tortas y mesa de dulces</li>
+            <li data-en="Furniture &amp; setup">Mobiliario y montaje</li>
+            <li data-en="Special moments">Momentos especiales</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-en="Venues available in">Locales disponibles en</h4>
+          <ul class="f-list">
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>San Borja</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Surco</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Breña</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Chorrillos</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-en="Contact">Contacto</h4>
+          <ul class="f-contact">
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><a href="https://maps.app.goo.gl/GQTiQzbimwWEMRk46" target="_blank" rel="noopener">Av. Manuel Olguín 745, Surco, Lima</a></li>
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.7 4.2-2.1 1.3a11 11 0 0 0 5.4 5.4l1.3-2.1L19 14.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+51999874476">999 874 476</a></li>
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg><a href="mailto:mardeys_buffets@hotmail.com">mardeys_buffets@hotmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <a
+      class="fab"
+      href="https://wa.me/51999874476?text=Hola%20Mardeys%20Eventos%2C%20quiero%20cotizar%20mi%20evento"
+      aria-label="Escribir por WhatsApp" data-en-aria="Chat on WhatsApp"
+    >
+      📞
+    </a>
+    <script>
+      const b = document.querySelector(".burger"),
+        u = document.querySelector(".nav ul");
+      b &&
+        b.addEventListener("click", () => {
+          const o = u.classList.toggle("open");
+          b.setAttribute("aria-expanded", o);
+        });
+      const f = document.getElementById("cotiza");
+      f &&
+        f.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const d = new FormData(f);
+          const t = `Hola Mardeys Eventos, soy ${d.get("n")}. Quiero cotizar: ${d.get("t")}. Fecha: ${d.get("f") || "por definir"}. Invitados: ${d.get("i") || "por definir"}. ${d.get("m") || ""}`;
+          window.open(
+            "https://wa.me/51999874476?text=" + encodeURIComponent(t),
+            "_blank",
+            "noopener",
+          );
+        });
+    </script>
+    <script>
+      /* Idioma ES / EN: el texto en español es el original; el inglés está en los atributos data-en, data-en-alt y data-en-aria */
+      (function () {
+        var D = document,
+          btn = D.getElementById("lang");
+        var META = {
+          es: { t: D.title, d: (D.querySelector('meta[name="description"]') || {}).content },
+          en: {
+            t: "About us | Event Planning Company in Surco, Lima | Mardeys Eventos",
+            d: "Meet Mardeys Eventos SAC, an event planning company in Surco, Lima, Peru: weddings, quinceañeras and celebrations with full service.",
+          },
+        };
+        var WA = {
+          es: "Hola Mardeys Eventos, quiero cotizar mi evento",
+          en: "Hello Mardeys Eventos, I would like a quote for my event",
+        };
+        function swap(sel, attr, enKey, esKey) {
+          D.querySelectorAll(sel).forEach(function (n) {
+            if (n.dataset[esKey] === undefined)
+              n.dataset[esKey] = attr ? n.getAttribute(attr) : n.textContent;
+          });
+        }
+        function apply(lang, save) {
+          var en = lang === "en";
+          swap("[data-en]", null, "en", "es");
+          D.querySelectorAll("[data-en]").forEach(function (n) {
+            n.textContent = en ? n.dataset.en : n.dataset.es;
+          });
+          swap("[data-en-alt]", "alt", "enAlt", "esAlt");
+          D.querySelectorAll("[data-en-alt]").forEach(function (n) {
+            n.setAttribute("alt", en ? n.dataset.enAlt : n.dataset.esAlt);
+          });
+          swap("[data-en-aria]", "aria-label", "enAria", "esAria");
+          D.querySelectorAll("[data-en-aria]").forEach(function (n) {
+            n.setAttribute("aria-label", en ? n.dataset.enAria : n.dataset.esAria);
+          });
+          D.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+            a.href = "https://wa.me/51999874476?text=" + encodeURIComponent(WA[lang]);
+          });
+          D.title = META[lang].t;
+          var md = D.querySelector('meta[name="description"]');
+          if (md) md.content = META[lang].d;
+          D.documentElement.lang = lang;
+          btn.querySelector("span").textContent = en ? "ES" : "EN";
+          btn.setAttribute("aria-label", en ? "Cambiar idioma a español" : "Change language to English");
+          if (save) {
+            try {
+              localStorage.setItem("lang", lang);
+            } catch (e) {}
+          }
+        }
+        var saved = null;
+        try {
+          saved = localStorage.getItem("lang");
+        } catch (e) {}
+        var lang = saved || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
+        if (lang === "en") apply("en", false);
+        btn.addEventListener("click", function () {
+          lang = lang === "en" ? "es" : "en";
+          apply(lang, true);
+        });
+      })();
+    </script>
+  </body>
+</html>

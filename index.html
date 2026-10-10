@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Organizador de eventos de Bodas y quinceañeras en Lima | Mardeys Eventos</title>
+    <meta name="description" content="Organizamos tu boda, quinceañeras o graduación en Lima: decoración, buffet, mozos, tortas, toldos, mesas y sillas. Cotiza con Mardeys Eventos en Surco." />
+    <meta name="theme-color" content="#b4636f" />
+    <link rel="canonical" href="https://mardeyseventos.com/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,600&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script>
+      /* Si la foto no carga como .webp, prueba con otras extensiones y, si no existe, la oculta */
+      function imgFb(i) {
+        var x = ["webp", "jpg", "jpeg", "png", "JPG", "JPEG", "PNG", "WEBP"];
+        var m = i.getAttribute("src").match(/\.(\w+)$/);
+        var k = m ? x.indexOf(m[1]) : -1;
+        if (k > -1 && k < x.length - 1) {
+          i.src = i.getAttribute("src").replace(/\.\w+$/, "." + x[k + 1]);
+        } else {
+          i.onerror = null;
+          i.remove();
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué tipos de eventos organizan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Organizamos bodas, quinceañeras, fiestas de promoción, cumpleaños y eventos corporativos en Lima, con decoración, buffet y servicio completo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué servicios incluye Mardeys Eventos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Decoración y ambientación, buffet y catering, mozos y personal de servicio, tortas y mesa de dulces, mobiliario y montaje, y momentos especiales como brindis, vals y mesas de recuerdo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo contratar solo algunos servicios?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Puedes contratar solo lo que necesitas o dejar que armemos el evento completo: tú disfrutas y nosotros nos encargamos de todo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué distritos tienen locales disponibles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contamos con locales disponibles en San Borja, Surco, Breña y Chorrillos. Escríbenos con tu fecha y número de invitados y te ayudamos a elegir el lugar ideal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo funciona el proceso, de la cotización al día del evento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Primero nos cuentas tu idea: fecha, número de invitados y estilo. Luego recibes una cotización clara y a tu medida, reservas tu fecha y coordinamos los detalles. El día del evento, nuestro equipo monta y atiende para que tú solo disfrutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo puedo solicitar una cotización personalizada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Escríbenos por WhatsApp al 999 874 476 con los datos de tu evento, o llena el formulario de la página de Contacto y se abrirá WhatsApp con tu mensaje listo para enviar."
+      }
+    }
+  ]
+}
+    </script>
+    <style>
+/* Sección "Todo para tu evento": 3 columnas, íconos de línea y efecto al pasar el mouse */
+.lead {
+  color: var(--soft);
+  max-width: 55ch;
+  margin: -4px 0 26px;
+}
+.services {
+  grid-template-columns: repeat(3, 1fr);
+}
+.services .card {
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+.services .card:hover {
+  transform: translateY(-4px);
+  border-color: var(--rose);
+  box-shadow: 0 14px 30px #b4636f26;
+}
+.badge {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--blush);
+  color: var(--rose);
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+.badge svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (max-width: 900px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .services {
+    grid-template-columns: 1fr;
+  }
+}
+.services .card {
+  overflow: hidden;
+}
+.svc-photo {
+  margin: -26px -26px 0;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: linear-gradient(150deg, #f1c9ce, #f7e4e5);
+}
+.svc-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.services .card:hover .svc-photo img {
+  transform: scale(1.05);
+}
+.services .badge {
+  position: relative;
+  margin-top: -29px;
+  border: 4px solid #fff;
+}
+.tile {
+  position: relative;
+  overflow: hidden;
+}
+.tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 55%, #0009);
+}
+.tile span {
+  position: relative;
+  z-index: 2;
+}
+.tile:hover img {
+  transform: scale(1.05);
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--rose);
+  border: 1.5px solid var(--edge, var(--line));
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: 700 0.9rem "Nunito", sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lang:hover {
+  background: var(--blush);
+}
+.hero h1 span.plain {
+  font-weight: inherit;
+  font-style: normal;
+  color: inherit;
+}
+@media (max-width: 760px) {
+  .logo {
+    white-space: nowrap;
+    font-size: 1.5rem;
+  }
+  .lang {
+    padding: 7px 11px;
+  }
+}
+.faq-head {
+  text-align: center;
+  margin-bottom: 34px;
+}
+.faq-head h2 {
+  max-width: 22em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.faq-head p {
+  color: var(--soft);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+.faq-item {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 22px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.faq-item:hover,
+.faq-item[open] {
+  border-color: var(--rose);
+}
+.faq-item[open] {
+  box-shadow: 0 10px 26px #b4636f1f;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 26px;
+  font-weight: 700;
+  border-radius: 22px;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--rose);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s;
+}
+.faq-item[open] summary svg {
+  transform: rotate(180deg);
+}
+.faq-item .ans {
+  padding: 0 26px 22px;
+}
+.faq-item .ans p {
+  margin: 0;
+  color: var(--soft);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 36px;
+}
+footer h4 {
+  font: 600 1.4rem "Cormorant Garamond", Georgia, serif;
+  color: #f0c4ca;
+  margin: 0 0 14px;
+}
+.f-list,
+.f-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  font-size: 0.96rem;
+}
+.f-list li,
+.f-contact li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.f-ico {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  fill: none;
+  stroke: #f0c4ca;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.f-ico.sm {
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+}
+footer a {
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.exp-anchor {
+  display: none;
+}
+@media (min-width: 1360px) {
+  section:has(.hero) {
+    overflow: visible;
+    overflow-x: clip;
+  }
+  .exp-anchor {
+    display: block;
+  }
+  .exp {
+    position: absolute;
+    top: -78px;
+    left: calc(50% + 540px + clamp(14px, 1.5vw, 40px));
+    z-index: 25;
+    width: max-content;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 0.3em;
+    justify-content: center;
+    align-items: end;
+    text-align: center;
+    color: var(--rose);
+    font-size: clamp(1.9rem, 2.6vw, 3.4rem);
+    animation: expfloat 6s ease-in-out infinite;
+  }
+  .exp .n {
+    grid-row: 1;
+    grid-column: 1;
+    font: 700 1em/0.9 "Cormorant Garamond", Georgia, serif;
+  }
+  .exp .y {
+    grid-row: 1;
+    grid-column: 2;
+    font: 700 0.38em/1 "Nunito", sans-serif;
+    letter-spacing: 0.16em;
+    margin-bottom: 0.18em;
+  }
+  .exp .d {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin-top: 0.12em;
+    font: 700 0.26em/1.2 "Nunito", sans-serif;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+  }
+}
+@media (min-width: 1700px) {
+  .exp {
+    font-size: 4.2rem;
+  }
+}
+@keyframes expfloat {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp {
+    animation: none !important;
+  }
+}
+.locales {
+  --ph: 340px;
+  --sh: 130px;
+  position: relative;
+  z-index: 3;
+  padding: 0;
+  background: #fff;
+  color: var(--rose);
+}
+.locales-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: var(--sh);
+}
+.loc-text {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.loc-text .num {
+  font: 700 6.2rem/0.85 "Cormorant Garamond", Georgia, serif;
+}
+.loc-text .lines {
+  display: grid;
+  font: 600 1.6rem/1.2 "Nunito", sans-serif;
+  letter-spacing: 0.02em;
+}
+.locales-photos {
+  display: flex;
+  gap: 16px;
+  flex: none;
+  margin-block: calc((var(--sh) - var(--ph)) / 2);
+}
+.loc-photo {
+  margin: 0;
+  flex: none;
+  height: var(--ph);
+  aspect-ratio: 3 / 2;
+  border: 4px solid #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(150deg, #f1c9ce, #fbeeee);
+  box-shadow: 0 16px 34px #3c141e47;
+}
+.locales-img {
+  display: block;
+  height: var(--ph);
+  width: auto;
+  max-width: 100%;
+  transform: translateY(-14px);
+}
+@media (max-width: 1100px) {
+  .locales {
+    --ph: clamp(220px, 29vw, 300px);
+  }
+  .loc-text .num {
+    font-size: 4.6rem;
+  }
+}
+@media (max-width: 860px) {
+  .locales {
+    overflow-x: clip;
+  }
+  .locales-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding-top: 18px;
+    min-height: 0;
+  }
+  .loc-text {
+    position: relative;
+    z-index: 2;
+    justify-content: center;
+    width: 100%;
+  }
+  .locales-photos {
+    width: 100%;
+    margin-block: -46px -52px;
+  }
+  .locales-img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.22);
+    transform-origin: center 55%;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <nav class="nav" aria-label="Principal">
+          <a class="logo" href="./">Mardeys Eventos</a>
+          <div class="nav-right">
+            <ul>
+            <li><a href="./" aria-current="page" data-en="Home">Inicio</a></li>
+            <li><a href="servicios/" data-en="Services">Servicios</a></li>
+            <li><a href="nosotros/" data-en="About us">Nosotros</a></li>
+            <li><a href="portafolio/" data-en="Portfolio">Portafolio</a></li>
+            <li><a href="contacto/" data-en="Contact">Contacto</a></li>
+          </ul>
+            <button class="lang" id="lang" type="button" aria-label="Change language to English"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 3.9 5.8 3.9 9s-1.3 6.2-3.9 9c-2.6-2.8-3.9-5.8-3.9-9S9.4 5.8 12 3z"/></svg><span>EN</span></button>
+            <button class="burger" aria-label="Abrir menú" data-en-aria="Open menu" aria-expanded="false">☰</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section style="padding-top: 0; padding-bottom: 0">
+        <div class="wrap">
+          <div class="hero">
+            <div>
+              <div class="pills">
+                <a class="pill" href="https://www.facebook.com/share/19fRWKrdeW/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#1877f2" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg> <span data-en="80K followers">80 mil seguidores</span></a>
+                <a class="pill" href="https://maps.app.goo.gl/GQTiQzbimwWEMRk46" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#ea4335" d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.8" fill="#fff"/></svg> <span data-en="Location">Ubicación</span></a>
+              </div>
+              <h1>
+                <b data-en="We create">Creamos</b>
+                <span data-en="the most special day">el día más especial</span>
+                <span class="plain" data-en="of your life">de tu vida</span>
+              </h1>
+              <p data-en="Weddings, quinceañeras and celebrations with decoration, buffet and full service. You enjoy, we take care of everything.">Bodas, quinceañeras y celebraciones con decoración, buffet y servicio completo. Tú disfrutas, nosotros nos encargamos de todo.</p>
+              <p>
+                <a class="btn" href="https://wa.me/51999874476?text=Hola%20Mardeys%20Eventos%2C%20quiero%20cotizar%20mi%20evento">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3" /><path d="M8 3v4M16 3v4M3.5 10h17M9 15l2.2 2.2L15.5 13" /></svg>
+                  <span data-en="Get a quote for my event">Cotizar mi evento</span>
+                </a>
+              </p>
+            </div>
+            <div class="hero-photo">
+              <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false"><defs><clipPath id="ola" clipPathUnits="objectBoundingBox"><path d="M0,0.245 C0.20,0.277 0.42,0.281 0.52,0.253 S0.78,0.082 1,0.008 L1,1 L0,1 Z" /></clipPath><clipPath id="ola-wide" clipPathUnits="objectBoundingBox"><path d="M0,0.88 C0.16,0.92 0.34,0.90 0.46,0.78 S0.62,0.30 0.80,0.10 S0.93,0.01 1,0 L1,1 L0,1 Z" /></clipPath></defs></svg>
+              <div class="exp-anchor">
+                <div class="exp">
+                  <span class="n">+20</span>
+                  <span class="y" data-en="YEARS">AÑOS</span>
+                  <span class="d" data-en="OF EXPERIENCE">DE EXPERIENCIA</span>
+                </div>
+              </div>
+              <img src="assets/img/novia.webp" alt="Novia sonriendo con un ramo de rosas rojas y blancas" data-en-alt="Smiling bride holding a bouquet of red and white roses" width="840" height="1260" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="tint">
+        <div class="wrap">
+          <h2 data-en="Everything for your event, in one place">Todo para tu evento, en un solo lugar</h2>
+          <p class="lead" data-en="Hire only what you need, or let us put the whole event together.">Contrata lo que necesitas o deja que armemos el evento completo.</p>
+          <div class="grid services">
+<div class="card"><div class="svc-photo"><img src="assets/img/decoracion.webp" alt="Decoración y ambientación de eventos" data-en-alt="Event decoration and ambiance" width="900" height="600" loading="lazy" onerror="imgFb(this)" /></div><div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M18.5 15l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg></div><h3 data-en="Decoration &amp; ambiance">Decoración y ambientación</h3><p data-en="Fabrics, arches, lighting and centerpieces designed for the style of your celebration.">Telas, arcos, iluminación y centros de mesa pensados para el estilo de tu celebración.</p></div>
+<div class="card"><div class="svc-photo"><img src="assets/img/buffet.webp" alt="Buffet y catering para eventos" data-en-alt="Buffet and catering for events" width="900" height="600" loading="lazy" onerror="imgFb(this)" /></div><div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h18M5 17a7 7 0 0 1 14 0M12 10V8M10.5 8h3M3 20h18"/></svg></div><h3 data-en="Buffet &amp; catering">Buffet y catering</h3><p data-en="Hot dishes, starters and food stations so your guests enjoy every moment.">Platos calientes, entradas y estaciones para que tus invitados disfruten cada momento.</p></div>
+<div class="card"><div class="svc-photo"><img src="assets/img/mozos.webp" alt="Mozos y personal de servicio" data-en-alt="Waiters and service staff" width="900" height="600" loading="lazy" onerror="imgFb(this)" /></div><div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-.5 6a3.5 3.5 0 0 1-7 0z"/><path d="M12 12.5V20M8.5 20h7"/></svg></div><h3 data-en="Waiters &amp; service staff">Mozos y personal de servicio</h3><p data-en="A uniformed, attentive team throughout the event, from the welcome to the toast.">Equipo uniformado y atento durante todo el evento, de la bienvenida al brindis.</p></div>
+<div class="card"><div class="svc-photo"><img src="assets/img/tortas.webp" alt="Tortas y mesa de dulces" data-en-alt="Cakes and dessert table" width="900" height="600" loading="lazy" onerror="imgFb(this)" /></div><div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M5 20v-6a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v6M5 16.5c2 1.5 3 1.5 4.5 0s3-1.5 4.5 0 3 1.5 5 0M12 13V9.5M12 8.2c.9-.9.9-1.7 0-2.7-.9 1-.9 1.8 0 2.7z"/></svg></div><h3 data-en="Cakes &amp; dessert table">Tortas y mesa de dulces</h3><p data-en="Multi-tier cakes, sweet and savory bites and dessert tables to your taste.">Tortas de varios pisos, bocaditos dulces y salados y mesas de postres a tu gusto.</p></div>
+<div class="card"><div class="svc-photo"><img src="assets/img/mobiliario.webp" alt="Mobiliario y montaje de eventos" data-en-alt="Event furniture and setup" width="900" height="600" loading="lazy" onerror="imgFb(this)" /></div><div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l-1 8H8zM6 11h12M8 11l-1 9M16 11l1 9"/></svg></div><h3 data-en="Furniture &amp; setup">Mobiliario y montaje</h3><p data-en="Tables, chairs, lounge areas, a head table for the couple and photo corners.">Mesas, sillas, salas lounge, mesa de novios y rincones para fotos.</p></div>
+<div class="card"><div class="svc-photo"><img src="assets/img/momentos.webp" alt="Momentos especiales de la celebración" data-en-alt="Special moments of the celebration" width="900" height="600" loading="lazy" onerror="imgFb(this)" /></div><div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div><h3 data-en="Special moments">Momentos especiales</h3><p data-en="Memory tables, toasts, waltz and little details that make the day unique.">Mesas de recuerdo, brindis, vals y detalles que hacen único el día.</p></div>
+          </div>
+          <p style="margin-top: 26px"><a class="btn alt" href="servicios/" data-en="See services">Ver servicios</a></p>
+        </div>
+      </section>
+      <!-- Franja intermedia: +80 locales (fotos en assets/img/locales-1.webp, locales-2.webp y locales-3.webp) -->
+      <section class="locales" aria-label="Locales disponibles">
+        <div class="wrap">
+          <div class="locales-inner">
+            <p class="loc-text">
+              <span class="num">+80</span>
+              <span class="lines"><span data-en="venues">locales</span><span data-en="to choose from">para elegir</span></span>
+            </p>
+            <div class="locales-photos">
+              <img class="locales-img" src="assets/img/locales.webp" alt="Tres locales disponibles para bodas, quinceañeras y celebraciones" data-en-alt="Three venues available for weddings, quinceañeras and celebrations" loading="lazy" onerror="imgFb(this)" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="wrap">
+          <h2 data-en="How we bring your celebrations to life">Así vivimos tus celebraciones</h2>
+          <div class="grid">
+            <div class="tile t1"><img src="assets/img/quinceaneras.webp" alt="Quinceañera ingresando al salón junto a su cortejo" data-en-alt="Quinceañera entering the hall with her honor guard" width="720" height="900" loading="lazy" style="object-position: center 40%" onerror="imgFb(this)" /><span data-en="Quinceañera parties">Quinceañeras</span></div>
+            <div class="tile t2"><img src="assets/img/bodas.webp" alt="Novios besándose en su primer baile con decoración roja y blanca" data-en-alt="Newlyweds kissing during their first dance with red and white decoration" width="720" height="900" loading="lazy" style="object-position: center 70%" onerror="imgFb(this)" /><span data-en="Weddings">Bodas</span></div>
+            <div class="tile t3"><img src="assets/img/mesa-de-dulces.webp" alt="Mesa de postres con tortas, vasitos y cupcakes sobre base dorada" data-en-alt="Dessert table with cakes, cups and cupcakes on a golden base" width="720" height="900" loading="lazy" style="object-position: center 60%" onerror="imgFb(this)" /><span data-en="Dessert table">Mesa de dulces</span></div>
+            <div class="tile t4"><img src="assets/img/ambientes.webp" alt="Puente de madera sobre un estanque en un jardín para eventos" data-en-alt="Wooden bridge over a pond in an event garden" width="720" height="900" loading="lazy" style="object-position: center 55%" onerror="imgFb(this)" /><span data-en="Settings">Ambientes</span></div>
+          </div>
+          <p style="margin-top: 26px"><a class="btn alt" href="portafolio/" data-en="See portfolio">Ver portafolio</a></p>
+        </div>
+      </section>
+      <section class="tint faq" id="faq">
+        <div class="wrap">
+          <div class="faq-head">
+            <h2 data-en="Frequently asked questions about weddings and quinceañeras in Lima">Preguntas frecuentes sobre bodas y quinceañeras en Lima</h2>
+            <p data-en="Everything you need to know before hiring Mardeys Eventos.">Todo lo que necesitas saber antes de contratar a Mardeys Eventos.</p>
+          </div>
+          <div class="faq-list">
+          <details class="faq-item">
+            <summary><span data-en="What types of events do you organize?">¿Qué tipos de eventos organizan?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="ans"><p data-en="We organize weddings, quinceañeras, graduation parties, birthdays and corporate events in Lima, with decoration, buffet and full service.">Organizamos bodas, quinceañeras, fiestas de promoción, cumpleaños y eventos corporativos en Lima, con decoración, buffet y servicio completo.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span data-en="What services does Mardeys Eventos include?">¿Qué servicios incluye Mardeys Eventos?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="ans"><p data-en="Decoration and ambiance, buffet and catering, waiters and service staff, cakes and dessert tables, furniture and setup, and special moments such as toasts, waltz and memory tables.">Decoración y ambientación, buffet y catering, mozos y personal de servicio, tortas y mesa de dulces, mobiliario y montaje, y momentos especiales como brindis, vals y mesas de recuerdo.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span data-en="Can I hire only some of the services?">¿Puedo contratar solo algunos servicios?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="ans"><p data-en="Yes. You can hire only what you need or let us put the whole event together: you enjoy, we take care of everything.">Sí. Puedes contratar solo lo que necesitas o dejar que armemos el evento completo: tú disfrutas y nosotros nos encargamos de todo.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span data-en="In which districts do you have venues available?">¿En qué distritos tienen locales disponibles?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="ans"><p data-en="We have venues available in San Borja, Surco, Breña and Chorrillos. Write to us with your date and number of guests and we will help you choose the ideal place.">Contamos con locales disponibles en San Borja, Surco, Breña y Chorrillos. Escríbenos con tu fecha y número de invitados y te ayudamos a elegir el lugar ideal.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span data-en="How does the process work, from the quote to the event day?">¿Cómo funciona el proceso, de la cotización al día del evento?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="ans"><p data-en="First you tell us your idea: date, number of guests and style. Then you receive a clear, tailored quote, reserve your date and we coordinate the details. On the day of the event, our team sets up and serves so you can simply enjoy.">Primero nos cuentas tu idea: fecha, número de invitados y estilo. Luego recibes una cotización clara y a tu medida, reservas tu fecha y coordinamos los detalles. El día del evento, nuestro equipo monta y atiende para que tú solo disfrutes.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span data-en="How can I request a personalized quote?">¿Cómo puedo solicitar una cotización personalizada?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="ans"><p data-en="Message us on WhatsApp at 999 874 476 with your event details, or fill in the form on the Contact page and WhatsApp will open with your message ready to send.">Escríbenos por WhatsApp al 999 874 476 con los datos de tu evento, o llena el formulario de la página de Contacto y se abrirá WhatsApp con tu mensaje listo para enviar.</p></div>
+          </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <a class="logo" href="./">Mardeys Eventos</a>
+          <p data-en="Mardeys Eventos SAC. Weddings, quinceañeras and celebrations with decoration, buffet and full service in Lima.">
+            Mardeys Eventos SAC. Bodas, quinceañeras y celebraciones con decoración, buffet y
+            servicio completo en Lima.
+          </p>
+          <div class="social">
+            <a
+              href="https://www.facebook.com/share/19fRWKrdeW/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              title="Facebook"
+              ><svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.6V3.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H8.8V13h2.7v8"
+                /></svg></a
+            ><a
+              href="https://www.instagram.com/mardeyseventos/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              title="Instagram"
+              ><svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none" /></svg></a
+            ><a
+              href="https://www.tiktok.com/@mardeys_eventos"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+              title="TikTok"
+              ><svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M14 3v11.2a3.7 3.7 0 1 1-3.7-3.7" />
+                <path d="M14 3c.3 2.5 2.1 4.3 4.7 4.6" /></svg
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h4 data-en="Services">Servicios</h4>
+          <ul class="f-list">
+            <li data-en="Decoration &amp; ambiance">Decoración y ambientación</li>
+            <li data-en="Buffet &amp; catering">Buffet y catering</li>
+            <li data-en="Waiters &amp; service staff">Mozos y personal de servicio</li>
+            <li data-en="Cakes &amp; dessert table">Tortas y mesa de dulces</li>
+            <li data-en="Furniture &amp; setup">Mobiliario y montaje</li>
+            <li data-en="Special moments">Momentos especiales</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-en="Venues available in">Locales disponibles en</h4>
+          <ul class="f-list">
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>San Borja</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Surco</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Breña</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Chorrillos</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-en="Contact">Contacto</h4>
+          <ul class="f-contact">
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><a href="https://maps.app.goo.gl/GQTiQzbimwWEMRk46" target="_blank" rel="noopener">Av. Manuel Olguín 745, Surco, Lima</a></li>
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.7 4.2-2.1 1.3a11 11 0 0 0 5.4 5.4l1.3-2.1L19 14.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+51999874476">999 874 476</a></li>
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg><a href="mailto:mardeys_buffets@hotmail.com">mardeys_buffets@hotmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <a
+      class="fab"
+      href="https://wa.me/51999874476?text=Hola%20Mardeys%20Eventos%2C%20quiero%20cotizar%20mi%20evento"
+      aria-label="Escribir por WhatsApp" data-en-aria="Chat on WhatsApp"
+    >
+      📞
+    </a>
+    <script>
+      const b = document.querySelector(".burger"),
+        u = document.querySelector(".nav ul");
+      b &&
+        b.addEventListener("click", () => {
+          const o = u.classList.toggle("open");
+          b.setAttribute("aria-expanded", o);
+        });
+      const f = document.getElementById("cotiza");
+      f &&
+        f.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const d = new FormData(f);
+          const t = `Hola Mardeys Eventos, soy ${d.get("n")}. Quiero cotizar: ${d.get("t")}. Fecha: ${d.get("f") || "por definir"}. Invitados: ${d.get("i") || "por definir"}. ${d.get("m") || ""}`;
+          window.open(
+            "https://wa.me/51999874476?text=" + encodeURIComponent(t),
+            "_blank",
+            "noopener",
+          );
+        });
+    </script>
+    <script>
+      /* Idioma ES / EN: el texto en español es el original; el inglés está en los atributos data-en, data-en-alt y data-en-aria */
+      (function () {
+        var D = document,
+          btn = D.getElementById("lang");
+        var META = {
+          es: { t: D.title, d: (D.querySelector('meta[name="description"]') || {}).content },
+          en: {
+            t: "Wedding & Quinceañera Event Planner in Lima | Mardeys Eventos",
+            d: "We plan your wedding, quinceañera or graduation in Lima: decoration, buffet, waiters, cakes, tents, tables and chairs. Get a quote from Mardeys Eventos in Surco.",
+          },
+        };
+        var WA = {
+          es: "Hola Mardeys Eventos, quiero cotizar mi evento",
+          en: "Hello Mardeys Eventos, I would like a quote for my event",
+        };
+        function swap(sel, attr, enKey, esKey) {
+          D.querySelectorAll(sel).forEach(function (n) {
+            if (n.dataset[esKey] === undefined)
+              n.dataset[esKey] = attr ? n.getAttribute(attr) : n.textContent;
+          });
+        }
+        function apply(lang, save) {
+          var en = lang === "en";
+          swap("[data-en]", null, "en", "es");
+          D.querySelectorAll("[data-en]").forEach(function (n) {
+            n.textContent = en ? n.dataset.en : n.dataset.es;
+          });
+          swap("[data-en-alt]", "alt", "enAlt", "esAlt");
+          D.querySelectorAll("[data-en-alt]").forEach(function (n) {
+            n.setAttribute("alt", en ? n.dataset.enAlt : n.dataset.esAlt);
+          });
+          swap("[data-en-aria]", "aria-label", "enAria", "esAria");
+          D.querySelectorAll("[data-en-aria]").forEach(function (n) {
+            n.setAttribute("aria-label", en ? n.dataset.enAria : n.dataset.esAria);
+          });
+          D.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+            a.href = "https://wa.me/51999874476?text=" + encodeURIComponent(WA[lang]);
+          });
+          D.title = META[lang].t;
+          var md = D.querySelector('meta[name="description"]');
+          if (md) md.content = META[lang].d;
+          D.documentElement.lang = lang;
+          btn.querySelector("span").textContent = en ? "ES" : "EN";
+          btn.setAttribute("aria-label", en ? "Cambiar idioma a español" : "Change language to English");
+          if (save) {
+            try {
+              localStorage.setItem("lang", lang);
+            } catch (e) {}
+          }
+        }
+        var saved = null;
+        try {
+          saved = localStorage.getItem("lang");
+        } catch (e) {}
+        var lang = saved || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
+        if (lang === "en") apply("en", false);
+        btn.addEventListener("click", function () {
+          lang = lang === "en" ? "es" : "en";
+          apply(lang, true);
+        });
+      })();
+    </script>
+  </body>
+</html>
