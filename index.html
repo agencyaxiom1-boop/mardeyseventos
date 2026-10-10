@@ -351,6 +351,35 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 36px;
+  padding-top: 22px;
+  border-top: 1px solid #ffffff22;
+  font-size: 0.92rem;
+  color: #d9c9cc;
+}
+.footer-bottom p {
+  margin: 0;
+}
+.footer-bottom .managed {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-bottom .managed img {
+  display: block;
+  height: 30px;
+  width: auto;
+}
+.footer-bottom .managed a:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -440,19 +469,49 @@ footer a:hover {
   gap: 32px;
   min-height: var(--sh);
 }
+/* Mismo estilo que "+20 AÑOS DE EXPERIENCIA": número grande en serif y textos en mayúsculas con espaciado */
 .loc-text {
   margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  font-size: 7rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 0.3em;
+  justify-content: center;
+  align-items: end;
+  align-self: center;
+  text-align: center;
 }
 .loc-text .num {
-  font: 700 6.2rem/0.85 "Cormorant Garamond", Georgia, serif;
+  grid-row: 1;
+  grid-column: 1;
+  font: 700 0.7em/0.9 "Cormorant Garamond", Georgia, serif;
+  font-variant-numeric: lining-nums;
 }
 .loc-text .lines {
-  display: grid;
-  font: 600 1.6rem/1.2 "Nunito", sans-serif;
-  letter-spacing: 0.02em;
+  display: contents;
+}
+.loc-text .lines span {
+  text-transform: uppercase;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+.loc-text .lines span:first-child {
+  grid-row: 1;
+  grid-column: 2;
+  font-size: 0.38em;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.18em;
+}
+.loc-text .lines span:last-child {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  margin-top: 0.1em;
+  font-size: 0.32em;
+  line-height: 1.2;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em; /* compensa el espacio final de la última letra para que quede centrado */
+  color: var(--ink);
 }
 .locales-photos {
   display: flex;
@@ -482,8 +541,8 @@ footer a:hover {
   .locales {
     --ph: clamp(220px, 29vw, 300px);
   }
-  .loc-text .num {
-    font-size: 4.6rem;
+  .loc-text {
+    font-size: 5rem;
   }
 }
 @media (max-width: 860px) {
@@ -769,6 +828,15 @@ footer a:hover {
             <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg><a href="mailto:mardeys_buffets@hotmail.com">mardeys_buffets@hotmail.com</a></li>
           </ul>
         </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <p data-en="© 2026 Mardeys Eventos SAC. All rights reserved.">© 2026 Mardeys Eventos SAC. Todos los derechos reservados.</p>
+        <p class="managed">
+          <span data-en="Managed by:">Administrado por:</span>
+          <a href="https://yapaseo.com/" target="_blank" rel="noopener" aria-label="Yapaseo" title="Yapaseo"
+            ><img src="assets/img/yapaseo.webp" alt="Yapaseo" height="30" loading="lazy"
+          /></a>
+        </p>
       </div>
     </footer>
     <a

@@ -6,7 +6,34 @@
     <title>Portafolio | Mardeys Eventos</title>
     <meta name="description" content="Fotos de bodas, quinceañeras y montajes de Mardeys Eventos." />
     <meta name="theme-color" content="#b4636f" />
+    <script>
+      /* Evita el parpadeo español -> inglés al cargar */
+      try {
+        var l = localStorage.getItem("lang") || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
+        if (l === "en") {
+          document.documentElement.classList.add("lang-wait");
+          setTimeout(function () {
+            document.documentElement.classList.remove("lang-wait");
+          }, 1500);
+        }
+      } catch (e) {}
+    </script>
     <link rel="canonical" href="https://mardeyseventos.com/portafolio/" />
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+    <!-- Vista previa al compartir el enlace. Al publicar con el dominio final, cambia https://agencyaxiom1-boop.github.io/mardeyseventos/ por https://mardeyseventos.com/ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mardeys Eventos" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:title" content="Portafolio | Mardeys Eventos" />
+    <meta property="og:description" content="Fotos de bodas, quinceañeras y montajes de Mardeys Eventos." />
+    <meta property="og:url" content="https://agencyaxiom1-boop.github.io/mardeyseventos/portafolio/" />
+    <meta property="og:image" content="https://agencyaxiom1-boop.github.io/mardeyseventos/assets/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portafolio | Mardeys Eventos" />
+    <meta name="twitter:description" content="Fotos de bodas, quinceañeras y montajes de Mardeys Eventos." />
+    <meta name="twitter:image" content="https://agencyaxiom1-boop.github.io/mardeyseventos/assets/img/og-image.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,60 +41,301 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+/* Estilos propios de esta página: botón de idioma, galería de fotos y pie de página */
+.tile {
+  position: relative;
+  overflow: hidden;
+}
+.tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 55%, #0009);
+}
+.tile span {
+  position: relative;
+  z-index: 2;
+}
+.tile:hover img {
+  transform: scale(1.05);
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--rose);
+  border: 1.5px solid var(--edge, var(--line));
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: 700 0.9rem "Nunito", sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lang:hover {
+  background: var(--blush);
+}
+.hero h1 span.plain {
+  font-weight: inherit;
+  font-style: normal;
+  color: inherit;
+}
+@media (max-width: 760px) {
+  .logo {
+    white-space: nowrap;
+    font-size: 1.5rem;
+  }
+  .lang {
+    padding: 7px 11px;
+  }
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 36px;
+}
+footer h4 {
+  font: 600 1.4rem "Cormorant Garamond", Georgia, serif;
+  color: #f0c4ca;
+  margin: 0 0 14px;
+}
+.f-list,
+.f-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  font-size: 0.96rem;
+}
+.f-list li,
+.f-contact li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.f-ico {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  fill: none;
+  stroke: #f0c4ca;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.f-ico.sm {
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+}
+footer a {
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 36px;
+  padding-top: 22px;
+  border-top: 1px solid #ffffff22;
+  font-size: 0.92rem;
+  color: #d9c9cc;
+}
+.footer-bottom p {
+  margin: 0;
+}
+.footer-bottom .managed {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-bottom .managed img {
+  display: block;
+  height: 30px;
+  width: auto;
+}
+.footer-bottom .managed a:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.gallery {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.gallery .tile {
+  border-radius: 20px;
+}
+.gallery .tile::after {
+  display: none;
+}
+@media (min-width: 700px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.gallery {
+  min-height: 50vh;
+}
+.btn {
+  position: relative;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 4px;
+}
+html.lang-wait body {
+  visibility: hidden;
+}
+.gal-empty {
+  background: #fff;
+  border: 1.5px dashed var(--edge, var(--line));
+  border-radius: 20px;
+  padding: 22px;
+  color: var(--soft);
+  margin-top: 30px;
+}
+.gal-empty small {
+  word-break: break-all;
+}
+    </style>
   </head>
   <body>
     <header>
       <div class="wrap">
         <nav class="nav" aria-label="Principal">
           <a class="logo" href="../">Mardeys Eventos</a>
-          <ul>
-            <li><a href="../">Inicio</a></li>
-            <li><a href="../servicios/">Servicios</a></li>
-            <li><a href="../nosotros/">Nosotros</a></li>
-            <li><a href="../portafolio/" aria-current="page">Portafolio</a></li>
-            <li><a href="../contacto/">Contacto</a></li>
-          </ul>
-          <button class="burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
+          <div class="nav-right">
+            <ul>
+              <li><a href="../" data-en="Home">Inicio</a></li>
+              <li><a href="../servicios/" data-en="Services">Servicios</a></li>
+              <li><a href="../nosotros/" data-en="About us">Nosotros</a></li>
+              <li><a href="../portafolio/" aria-current="page" data-en="Portfolio">Portafolio</a></li>
+              <li><a href="../contacto/" data-en="Contact">Contacto</a></li>
+            </ul>
+            <button class="lang" id="lang" type="button" aria-label="Change language to English"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 3.9 5.8 3.9 9s-1.3 6.2-3.9 9c-2.6-2.8-3.9-5.8-3.9-9S9.4 5.8 12 3z"/></svg><span>EN</span></button>
+            <button class="burger" aria-label="Abrir menú" data-en-aria="Open menu" aria-expanded="false">☰</button>
+          </div>
         </nav>
       </div>
     </header>
     <main>
       <section>
         <div class="wrap">
-          <h1><b>Nuestro</b> <span>portafolio</span></h1>
-          <p style="color: var(--soft)">Algunos de nuestros montajes. Reemplaza estos recuadros con tus fotos en <code>assets/img</code>.</p>
-          <div class="grid" style="margin-top: 30px">
-<div class="tile t1">Quinceañera</div>
-<div class="tile t2">Mesa de novios</div>
-<div class="tile t3">Mesa de dulces</div>
-<div class="tile t4">Salón iluminado</div>
-<div class="tile t3">Torta de bodas</div>
-<div class="tile t1">Arco de ingreso</div>
-<div class="tile t2">Mozos y servicio</div>
-<div class="tile t4">Rincón lounge</div>
-          </div>
-          <p style="margin-top: 30px"><a class="btn" href="https://www.instagram.com/mardeyseventos/" rel="noopener">Ver más en Instagram</a></p>
+          <h1><b data-en="Our">Nuestro</b> <span data-en="portfolio">portafolio</span></h1>
+          <p style="color: var(--soft)" data-en="Some of our setups and celebrations.">Algunos de nuestros montajes y celebraciones.</p>
+          <div class="gallery" id="gallery"></div>
+          <p class="gal-empty" id="galEmpty" hidden></p>
+          <script>
+            /* Busca imagen1.webp ... imagen32.webp en assets/img/portafolio-images/ y muestra solo las que existen, todas a la vez */
+            (function () {
+              var N = 32,
+                base = "../assets/img/portafolio-images/imagen",
+                exts = ["webp", "jpg", "jpeg", "png"],
+                ES = "Montaje de evento de Mardeys Eventos, foto ",
+                EN = "Mardeys Eventos event setup, photo ";
+              function load(n) {
+                return new Promise(function (ok) {
+                  var k = 0;
+                  (function next() {
+                    if (k >= exts.length) return ok(null);
+                    var im = new Image();
+                    im.onload = function () {
+                      ok(im);
+                    };
+                    im.onerror = next;
+                    im.src = base + n + "." + exts[k++];
+                  })();
+                });
+              }
+              var jobs = [];
+              for (var i = 1; i <= N; i++) jobs.push(load(i));
+              Promise.all(jobs).then(function (list) {
+                var g = document.getElementById("gallery"),
+                  f = document.createDocumentFragment(),
+                  en = document.documentElement.lang === "en",
+                  found = 0;
+                list.forEach(function (im, k) {
+                  if (!im) return;
+                  found++;
+                  var n = k + 1,
+                    t = document.createElement("div");
+                  t.className = "tile t" + (((n - 1) % 4) + 1);
+                  im.dataset.esAlt = ES + n;
+                  im.dataset.enAlt = EN + n;
+                  im.setAttribute("data-en-alt", EN + n);
+                  im.alt = (en ? EN : ES) + n;
+                  im.width = 720;
+                  im.height = 900;
+                  t.appendChild(im);
+                  f.appendChild(t);
+                });
+                g.appendChild(f);
+                if (!found) {
+                  var e = document.getElementById("galEmpty"),
+                    url = new URL(base + "1.webp", location.href).href;
+                  e.innerHTML =
+                    "No se encontraron fotos. Guárdalas como <b>imagen1.webp</b>, <b>imagen2.webp</b>… en la carpeta <b>assets/img/portafolio-images/</b>.<br><small>Buscando: " +
+                    url +
+                    "</small>";
+                  e.hidden = false;
+                  g.style.minHeight = "0";
+                }
+              });
+            })();
+          </script>
+          <p style="margin-top: 30px"><a class="btn" href="https://www.instagram.com/mardeyseventos/" target="_blank" rel="noopener" data-en="See more on Instagram">Ver más en Instagram</a></p>
         </div>
       </section>
     </main>
     <footer>
-      <div class="wrap two">
+      <div class="wrap footer-grid">
         <div>
           <a class="logo" href="../">Mardeys Eventos</a>
-          <p>
+          <p data-en="Mardeys Eventos SAC. Weddings, quinceañeras and celebrations with decoration, buffet and full service in Lima.">
             Mardeys Eventos SAC. Bodas, quinceañeras y celebraciones con decoración, buffet y
             servicio completo en Lima.
-          </p>
-        </div>
-        <div>
-          <p>
-            📍 Av. Manuel Olguín 745, Surco, Lima
-            <br />
-            📱
-            <a href="tel:+51999874476">999 874 476</a>
-            <br />
-            ✉️
-            <a href="mailto:mardeys_buffets@hotmail.com">mardeys_buffets@hotmail.com</a>
           </p>
           <div class="social">
             <a
@@ -132,16 +400,53 @@
             ></a>
           </div>
         </div>
+        <div>
+          <h4 data-en="Services">Servicios</h4>
+          <ul class="f-list">
+            <li data-en="Decoration &amp; ambiance">Decoración y ambientación</li>
+            <li data-en="Buffet &amp; catering">Buffet y catering</li>
+            <li data-en="Waiters &amp; service staff">Mozos y personal de servicio</li>
+            <li data-en="Cakes &amp; dessert table">Tortas y mesa de dulces</li>
+            <li data-en="Furniture &amp; setup">Mobiliario y montaje</li>
+            <li data-en="Special moments">Momentos especiales</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-en="Venues available in">Locales disponibles en</h4>
+          <ul class="f-list">
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>San Borja</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Surco</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Breña</li>
+            <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Chorrillos</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-en="Contact">Contacto</h4>
+          <ul class="f-contact">
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><a href="https://maps.app.goo.gl/GQTiQzbimwWEMRk46" target="_blank" rel="noopener">Av. Manuel Olguín 745, Surco, Lima</a></li>
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.7 4.2-2.1 1.3a11 11 0 0 0 5.4 5.4l1.3-2.1L19 14.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+51999874476">999 874 476</a></li>
+            <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg><a href="mailto:mardeys_buffets@hotmail.com">mardeys_buffets@hotmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <p data-en="© 2026 Mardeys Eventos SAC. All rights reserved.">© 2026 Mardeys Eventos SAC. Todos los derechos reservados.</p>
+        <p class="managed">
+          <span data-en="Managed by:">Administrado por:</span>
+          <a href="https://yapaseo.com/" target="_blank" rel="noopener" aria-label="Yapaseo" title="Yapaseo"
+            ><img src="../assets/img/yapaseo.webp" alt="Yapaseo" height="30" loading="lazy"
+          /></a>
+        </p>
       </div>
     </footer>
     <a
       class="fab"
       href="https://wa.me/51999874476?text=Hola%20Mardeys%20Eventos%2C%20quiero%20cotizar%20mi%20evento"
-      aria-label="Escribir por WhatsApp"
+      aria-label="Escribir por WhatsApp" data-en-aria="Chat on WhatsApp"
     >
       📞
     </a>
-    <script>
+        <script>
       const b = document.querySelector(".burger"),
         u = document.querySelector(".nav ul");
       b &&
@@ -161,6 +466,70 @@
             "noopener",
           );
         });
+    </script>
+    <script>
+      /* Idioma ES / EN: el texto en español es el original; el inglés está en los atributos data-en, data-en-alt y data-en-aria */
+      (function () {
+        var D = document,
+          btn = D.getElementById("lang");
+        var META = {
+          es: { t: D.title, d: (D.querySelector('meta[name="description"]') || {}).content },
+          en: {
+            t: "Portfolio | Mardeys Eventos",
+            d: "Photos of weddings, quinceañeras and event setups by Mardeys Eventos.",
+          },
+        };
+        var WA = {
+          es: "Hola Mardeys Eventos, quiero cotizar mi evento",
+          en: "Hello Mardeys Eventos, I would like a quote for my event",
+        };
+        function swap(sel, attr, enKey, esKey) {
+          D.querySelectorAll(sel).forEach(function (n) {
+            if (n.dataset[esKey] === undefined)
+              n.dataset[esKey] = attr ? n.getAttribute(attr) : n.textContent;
+          });
+        }
+        function apply(lang, save) {
+          var en = lang === "en";
+          swap("[data-en]", null, "en", "es");
+          D.querySelectorAll("[data-en]").forEach(function (n) {
+            n.textContent = en ? n.dataset.en : n.dataset.es;
+          });
+          swap("[data-en-alt]", "alt", "enAlt", "esAlt");
+          D.querySelectorAll("[data-en-alt]").forEach(function (n) {
+            n.setAttribute("alt", en ? n.dataset.enAlt : n.dataset.esAlt);
+          });
+          swap("[data-en-aria]", "aria-label", "enAria", "esAria");
+          D.querySelectorAll("[data-en-aria]").forEach(function (n) {
+            n.setAttribute("aria-label", en ? n.dataset.enAria : n.dataset.esAria);
+          });
+          D.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+            a.href = "https://wa.me/51999874476?text=" + encodeURIComponent(WA[lang]);
+          });
+          D.title = META[lang].t;
+          var md = D.querySelector('meta[name="description"]');
+          if (md) md.content = META[lang].d;
+          D.documentElement.lang = lang;
+          btn.querySelector("span").textContent = en ? "ES" : "EN";
+          btn.setAttribute("aria-label", en ? "Cambiar idioma a español" : "Change language to English");
+          if (save) {
+            try {
+              localStorage.setItem("lang", lang);
+            } catch (e) {}
+          }
+        }
+        var saved = null;
+        try {
+          saved = localStorage.getItem("lang");
+        } catch (e) {}
+        var lang = saved || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
+        if (lang === "en") apply("en", false);
+        D.documentElement.classList.remove("lang-wait");
+        btn.addEventListener("click", function () {
+          lang = lang === "en" ? "es" : "en";
+          apply(lang, true);
+        });
+      })();
     </script>
   </body>
 </html>

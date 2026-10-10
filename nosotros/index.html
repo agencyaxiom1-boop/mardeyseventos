@@ -159,6 +159,35 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 36px;
+  padding-top: 22px;
+  border-top: 1px solid #ffffff22;
+  font-size: 0.92rem;
+  color: #d9c9cc;
+}
+.footer-bottom p {
+  margin: 0;
+}
+.footer-bottom .managed {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-bottom .managed img {
+  display: block;
+  height: 30px;
+  width: auto;
+}
+.footer-bottom .managed a:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -254,26 +283,37 @@ body header {
     url(../assets/img/nosotros.webp) center / cover no-repeat,
     #7a4650;
 }
+/* Solo texto sobre la foto (sin cuadro): una sombra suave y un degradado leve abajo mantienen la lectura */
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(30, 14, 20, 0.55), rgba(30, 14, 20, 0) 60%);
+  pointer-events: none;
+}
+.about-hero .wrap {
+  position: relative;
+  z-index: 1;
+}
 .ah-panel {
   max-width: 660px;
-  padding: clamp(22px, 3vw, 34px) clamp(22px, 3.4vw, 40px);
-  background: rgba(30, 30, 34, 0.62);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  border-radius: 22px;
   color: #fff;
 }
 .ah-panel h1 {
   font: 700 clamp(1rem, 1.5vw, 1.2rem) / 1.35 "Nunito", sans-serif !important;
   letter-spacing: 0.03em;
-  color: #f0c4ca !important;
+  color: #ffb6c6 !important;
   margin: 0 0 8px !important;
+  text-shadow:
+    0 1px 2px rgba(20, 8, 12, 0.85),
+    0 2px 12px rgba(20, 8, 12, 0.75);
 }
 .ah-title {
   margin: 0 !important;
   font: 600 clamp(2.8rem, 7vw, 5.6rem) / 0.98 "Cormorant Garamond", Georgia, serif !important;
   text-transform: uppercase;
   color: #fff !important;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55);
 }
 @media (max-width: 760px) {
   .about-hero {
@@ -529,6 +569,15 @@ h2.hl span.plain {
             <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg><a href="mailto:mardeys_buffets@hotmail.com">mardeys_buffets@hotmail.com</a></li>
           </ul>
         </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <p data-en="© 2026 Mardeys Eventos SAC. All rights reserved.">© 2026 Mardeys Eventos SAC. Todos los derechos reservados.</p>
+        <p class="managed">
+          <span data-en="Managed by:">Administrado por:</span>
+          <a href="https://yapaseo.com/" target="_blank" rel="noopener" aria-label="Yapaseo" title="Yapaseo"
+            ><img src="../assets/img/yapaseo.webp" alt="Yapaseo" height="30" loading="lazy"
+          /></a>
+        </p>
       </div>
     </footer>
     <a
