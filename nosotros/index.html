@@ -403,7 +403,18 @@ h2.hl span.plain {
     width: min(100%, 440px);
   }
 }
-    </style>
+    /* Contraste (accesibilidad): textos con relación mínima 4.5:1, igual que en el inicio */
+.lang {
+  color: #9a4a57;
+}
+.nav li a:hover,
+.nav li a[aria-current] {
+  color: #9a4a57;
+}
+.story p {
+  color: #5a4a4e;
+}
+</style>
   </head>
   <body>
     <header>
