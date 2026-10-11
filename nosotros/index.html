@@ -24,7 +24,8 @@
     <meta name="twitter:image" content="https://agencyaxiom1-boop.github.io/mardeyseventos/assets/img/og-image.jpg" />
     <link rel="canonical" href="https://mardeyseventos.com/nosotros/" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="../assets/img/nosotros.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="../assets/img/nosotros-m.webp" media="(max-width: 600px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="../assets/img/nosotros.webp" media="(min-width: 601px)" fetchpriority="high" />
     <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSo.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaB.woff2" crossorigin />
@@ -954,6 +955,14 @@ h2.hl span.plain {
 }
 .story p {
   color: #5a4a4e;
+}
+/* Celular: foto de portada recortada al centro (pesa mucho menos; en pantallas angostas solo se ve esa zona) */
+@media (max-width: 600px) {
+  .about-hero {
+    background:
+      url(../assets/img/nosotros-m.webp) center / cover no-repeat,
+      #7a4650;
+  }
 }
 </style>
   </head>
