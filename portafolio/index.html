@@ -291,10 +291,10 @@ html.lang-wait body {
           <h1><b data-en="Our">Nuestro</b> <span data-en="portfolio">portafolio</span></h1>
           <p style="color: var(--soft)" data-en="Some of our setups and celebrations.">Algunos de nuestros montajes y celebraciones.</p>
           <div class="gallery" id="gallery">
-            <div class="tile t1"><img src="../assets/img/portafolio-images/imagen1.webp" alt="Montaje de evento de Mardeys Eventos, foto 1" data-en-alt="Mardeys Eventos event setup, photo 1" data-es-alt="Montaje de evento de Mardeys Eventos, foto 1" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentNode.remove()" /></div>
-            <div class="tile t2"><img src="../assets/img/portafolio-images/imagen2.webp" alt="Montaje de evento de Mardeys Eventos, foto 2" data-en-alt="Mardeys Eventos event setup, photo 2" data-es-alt="Montaje de evento de Mardeys Eventos, foto 2" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentNode.remove()" /></div>
-            <div class="tile t3"><img src="../assets/img/portafolio-images/imagen3.webp" alt="Montaje de evento de Mardeys Eventos, foto 3" data-en-alt="Mardeys Eventos event setup, photo 3" data-es-alt="Montaje de evento de Mardeys Eventos, foto 3" width="720" height="900" decoding="async" loading="eager" onerror="this.parentNode.remove()" /></div>
-            <div class="tile t4"><img src="../assets/img/portafolio-images/imagen4.webp" alt="Montaje de evento de Mardeys Eventos, foto 4" data-en-alt="Mardeys Eventos event setup, photo 4" data-es-alt="Montaje de evento de Mardeys Eventos, foto 4" width="720" height="900" decoding="async" loading="eager" onerror="this.parentNode.remove()" /></div>
+            <div class="tile t1"><img src="../assets/img/portafolio-images/imagen1.webp" srcset="../assets/img/portafolio-images/imagen1-400.webp 400w, ../assets/img/portafolio-images/imagen1.webp 720w" sizes="(min-width: 1000px) 392px, (min-width: 700px) 33vw, 50vw" alt="Montaje de evento de Mardeys Eventos, foto 1" data-en-alt="Mardeys Eventos event setup, photo 1" data-es-alt="Montaje de evento de Mardeys Eventos, foto 1" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="if(this.hasAttribute('srcset')){this.removeAttribute('srcset');this.removeAttribute('sizes')}else{this.parentNode.remove()}" /></div>
+            <div class="tile t2"><img src="../assets/img/portafolio-images/imagen2.webp" srcset="../assets/img/portafolio-images/imagen2-400.webp 400w, ../assets/img/portafolio-images/imagen2.webp 720w" sizes="(min-width: 1000px) 392px, (min-width: 700px) 33vw, 50vw" alt="Montaje de evento de Mardeys Eventos, foto 2" data-en-alt="Mardeys Eventos event setup, photo 2" data-es-alt="Montaje de evento de Mardeys Eventos, foto 2" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="if(this.hasAttribute('srcset')){this.removeAttribute('srcset');this.removeAttribute('sizes')}else{this.parentNode.remove()}" /></div>
+            <div class="tile t3"><img src="../assets/img/portafolio-images/imagen3.webp" srcset="../assets/img/portafolio-images/imagen3-400.webp 400w, ../assets/img/portafolio-images/imagen3.webp 720w" sizes="(min-width: 1000px) 392px, (min-width: 700px) 33vw, 50vw" alt="Montaje de evento de Mardeys Eventos, foto 3" data-en-alt="Mardeys Eventos event setup, photo 3" data-es-alt="Montaje de evento de Mardeys Eventos, foto 3" width="720" height="900" decoding="async" loading="eager" onerror="if(this.hasAttribute('srcset')){this.removeAttribute('srcset');this.removeAttribute('sizes')}else{this.parentNode.remove()}" /></div>
+            <div class="tile t4"><img src="../assets/img/portafolio-images/imagen4.webp" srcset="../assets/img/portafolio-images/imagen4-400.webp 400w, ../assets/img/portafolio-images/imagen4.webp 720w" sizes="(min-width: 1000px) 392px, (min-width: 700px) 33vw, 50vw" alt="Montaje de evento de Mardeys Eventos, foto 4" data-en-alt="Mardeys Eventos event setup, photo 4" data-es-alt="Montaje de evento de Mardeys Eventos, foto 4" width="720" height="900" decoding="async" loading="eager" onerror="if(this.hasAttribute('srcset')){this.removeAttribute('srcset');this.removeAttribute('sizes')}else{this.parentNode.remove()}" /></div>
           </div>
           <p class="gal-empty" id="galEmpty" hidden></p>
           <script>
@@ -304,6 +304,8 @@ html.lang-wait body {
               var N = 32, /* <-- pon aquí el número real de fotos que tienes */
                 base = "../assets/img/portafolio-images/imagen",
                 exts = ["webp", "jpg", "jpeg", "png"],
+                /* Ancho aproximado de cada foto en pantalla: el navegador elige entre la de 400 px y la de 720 px */
+                SIZES = "(min-width: 1000px) 392px, (min-width: 700px) 33vw, 50vw",
                 ES = "Montaje de evento de Mardeys Eventos, foto ",
                 EN = "Mardeys Eventos event setup, photo ",
                 g = document.getElementById("gallery"),
@@ -311,6 +313,13 @@ html.lang-wait body {
                 en = document.documentElement.lang === "en",
                 alive = N - 4;
               function fail(im, t) {
+                if (im.hasAttribute("srcset")) {
+                  /* Aún no existe la versión de 400 px: se usa la foto completa */
+                  im.removeAttribute("srcset");
+                  im.removeAttribute("sizes");
+                  im.src = base + im.dataset.n + "." + exts[+im.dataset.k];
+                  return;
+                }
                 var k = +im.dataset.k + 1;
                 if (k < exts.length) {
                   im.dataset.k = k;
@@ -344,6 +353,8 @@ html.lang-wait body {
                   im.onerror = (function (im, t) {
                     return function () { fail(im, t); };
                   })(im, t);
+                  im.sizes = SIZES;
+                  im.srcset = base + n + "-400.webp 400w, " + base + n + ".webp 720w";
                   im.src = base + n + ".webp";
                   t.appendChild(im);
                   f.appendChild(t);
