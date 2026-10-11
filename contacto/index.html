@@ -136,6 +136,13 @@ footer a:hover {
   }
 }
 
+/* Contraste accesible (WCAG AA): rosa más oscuro para texto/botones */
+:root { --rose: #9a4b57; }
+.btn { background: var(--rose); color: #fff; }
+.btn.alt { background: #fff; color: var(--rose); border: 1.5px solid var(--rose); }
+.lang { color: var(--rose); }
+.ct-steps-head p { color: #5a4448; }
+
 /* Contacto */
 .btn { position: relative; }
 .btn::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 4px; }
