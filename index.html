@@ -47,7 +47,7 @@
         visibility: hidden;
       }
     </style>
-    <link rel="preload" as="image" href="assets/img/novia.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/img/novia.webp" imagesrcset="assets/img/novia-560.webp 560w, assets/img/novia.webp 840w" imagesizes="(max-width: 760px) 76vw, 520px" fetchpriority="high" />
     <link rel="preload" as="image" href="assets/img/jardin.webp" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2" crossorigin />
@@ -612,8 +612,8 @@ footer a:hover {
   .hero-sec {
     display: flex;
     flex-direction: column;
-    min-height: max(calc(100vh - 56px), 880px);
-    min-height: max(calc(100svh - 56px), 880px);
+    min-height: calc(100vh - 56px);
+    min-height: calc(100svh - 56px);
   }
   .hero-sec > .wrap {
     flex: 1;
@@ -628,6 +628,7 @@ footer a:hover {
   }
   .hero-sec .hero > .hero-photo {
     margin-top: auto !important;
+    align-self: stretch;
   }
 }
 /* Contraste (accesibilidad): rosa más oscuro para texto y botones, y gris más oscuro para textos de apoyo (mínimo 4.5:1) */
@@ -705,7 +706,7 @@ footer a:hover {
                   <span class="d" data-en="OF EXPERIENCE">DE EXPERIENCIA</span>
                 </div>
               </div>
-              <img src="assets/img/novia.webp" alt="Novia sonriendo con un ramo de rosas rojas y blancas" data-en-alt="Smiling bride holding a bouquet of red and white roses" width="840" height="1260" fetchpriority="high" decoding="async" />
+              <img src="assets/img/novia.webp" srcset="assets/img/novia-560.webp 560w, assets/img/novia.webp 840w" sizes="(max-width: 760px) 76vw, 520px" alt="Novia sonriendo con un ramo de rosas rojas y blancas" data-en-alt="Smiling bride holding a bouquet of red and white roses" width="840" height="1260" fetchpriority="high" decoding="async" />
             </div>
           </div>
         </div>
