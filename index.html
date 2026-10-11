@@ -23,6 +23,30 @@
     <meta name="twitter:description" content="Organizamos tu boda, quinceañeras o graduación en Lima: decoración, buffet, mozos, tortas, toldos, mesas y sillas. Cotiza con Mardeys Eventos en Surco." />
     <meta name="twitter:image" content="https://agencyaxiom1-boop.github.io/mardeyseventos/assets/img/og-image.jpg" />
     <link rel="canonical" href="https://mardeyseventos.com/" />
+    <script>
+      /* Evita el salto de diseño: si la página se mostrará en inglés, espera a que se traduzca el texto antes de pintar */
+      (function () {
+        try {
+          var l = null;
+          try {
+            l = localStorage.getItem("lang");
+          } catch (e) {}
+          l = l || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
+          if (l === "en") {
+            var h = document.documentElement;
+            h.setAttribute("data-lp", "");
+            setTimeout(function () {
+              h.removeAttribute("data-lp");
+            }, 2500);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <style>
+      html[data-lp] body {
+        visibility: hidden;
+      }
+    </style>
     <link rel="preload" as="image" href="assets/img/novia.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="assets/img/jardin.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -955,6 +979,7 @@ footer a:hover {
         } catch (e) {}
         var lang = saved || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
         if (lang === "en") apply("en", false);
+        D.documentElement.removeAttribute("data-lp");
         btn.addEventListener("click", function () {
           lang = lang === "en" ? "es" : "en";
           apply(lang, true);
