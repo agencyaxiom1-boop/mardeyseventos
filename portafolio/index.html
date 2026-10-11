@@ -325,28 +325,36 @@ html.lang-wait body {
                   g.style.minHeight = "0";
                 }
               }
-              for (let n = 5; n <= N; n++) {
-                var t = document.createElement("div"),
-                  im = new Image();
-                t.className = "tile t" + (((n - 1) % 4) + 1);
-                im.dataset.n = n;
-                im.dataset.k = 0;
-                im.dataset.esAlt = ES + n;
-                im.dataset.enAlt = EN + n;
-                im.setAttribute("data-en-alt", EN + n);
-                im.alt = (en ? EN : ES) + n;
-                im.width = 720;
-                im.height = 900;
-                im.decoding = "async";
-                im.loading = "lazy";
-                im.onerror = (function (im, t) {
-                  return function () { fail(im, t); };
-                })(im, t);
-                im.src = base + n + ".webp";
-                t.appendChild(im);
-                f.appendChild(t);
+              function build() {
+                en = document.documentElement.lang === "en";
+                for (let n = 5; n <= N; n++) {
+                  var t = document.createElement("div"),
+                    im = new Image();
+                  t.className = "tile t" + (((n - 1) % 4) + 1);
+                  im.dataset.n = n;
+                  im.dataset.k = 0;
+                  im.dataset.esAlt = ES + n;
+                  im.dataset.enAlt = EN + n;
+                  im.setAttribute("data-en-alt", EN + n);
+                  im.alt = (en ? EN : ES) + n;
+                  im.setAttribute("width", "720");
+                  im.setAttribute("height", "900");
+                  im.decoding = "async";
+                  im.loading = "lazy";
+                  im.onerror = (function (im, t) {
+                    return function () { fail(im, t); };
+                  })(im, t);
+                  im.src = base + n + ".webp";
+                  t.appendChild(im);
+                  f.appendChild(t);
+                }
+                g.appendChild(f);
               }
-              g.appendChild(f);
+              /* Se arma después del primer pintado: así el navegador no tiene que calcular
+                 el diseño de ~28 fotos nuevas en medio de la carga de la página (reflow forzado). */
+              requestAnimationFrame(function () {
+                setTimeout(build, 0);
+              });
             })();
           </script>
           <p style="margin-top: 30px"><a class="btn" href="https://www.instagram.com/mardeyseventos/" target="_blank" rel="noopener" data-en="See more on Instagram">Ver más en Instagram</a></p>
