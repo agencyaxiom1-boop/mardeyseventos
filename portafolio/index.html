@@ -108,7 +108,7 @@
   grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
   gap: 36px;
 }
-footer h4 {
+footer h2 {
   font: 600 1.4rem "Cormorant Garamond", Georgia, serif;
   color: #f0c4ca;
   margin: 0 0 14px;
@@ -239,7 +239,26 @@ html.lang-wait body {
 .gal-empty small {
   word-break: break-all;
 }
-    </style>
+    /* Contraste (accesibilidad): rosa más oscuro para texto y botones (mínimo 4.5:1), igual que en el inicio */
+.lang {
+  color: #9a4a57;
+}
+.btn:not(.alt) {
+  background: #9a4a57;
+  color: #fff;
+}
+.btn:not(.alt):hover {
+  background: #82394a;
+}
+.btn.alt {
+  color: #9a4a57;
+  border-color: #9a4a57;
+}
+.nav li a:hover,
+.nav li a[aria-current] {
+  color: #9a4a57;
+}
+</style>
   </head>
   <body>
     <header>
@@ -401,7 +420,7 @@ html.lang-wait body {
           </div>
         </div>
         <div>
-          <h4 data-en="Services">Servicios</h4>
+          <h2 data-en="Services">Servicios</h2>
           <ul class="f-list">
             <li data-en="Decoration &amp; ambiance">Decoración y ambientación</li>
             <li data-en="Buffet &amp; catering">Buffet y catering</li>
@@ -412,7 +431,7 @@ html.lang-wait body {
           </ul>
         </div>
         <div>
-          <h4 data-en="Venues available in">Locales disponibles en</h4>
+          <h2 data-en="Venues available in">Locales disponibles en</h2>
           <ul class="f-list">
             <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>San Borja</li>
             <li><svg class="f-ico sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Surco</li>
@@ -421,7 +440,7 @@ html.lang-wait body {
           </ul>
         </div>
         <div>
-          <h4 data-en="Contact">Contacto</h4>
+          <h2 data-en="Contact">Contacto</h2>
           <ul class="f-contact">
             <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><a href="https://maps.app.goo.gl/GQTiQzbimwWEMRk46" target="_blank" rel="noopener">Av. Manuel Olguín 745, Surco, Lima</a></li>
             <li><svg class="f-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.7 4.2-2.1 1.3a11 11 0 0 0 5.4 5.4l1.3-2.1L19 14.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+51999874476">999 874 476</a></li>
@@ -434,7 +453,7 @@ html.lang-wait body {
         <p class="managed">
           <span data-en="Managed by:">Administrado por:</span>
           <a href="https://yapaseo.com/" target="_blank" rel="noopener" aria-label="Yapaseo" title="Yapaseo"
-            ><img src="../assets/img/yapaseo.webp" alt="Yapaseo" height="30" loading="lazy"
+            ><img src="../assets/img/yapaseo.webp" alt="Yapaseo" width="315" height="116" loading="lazy"
           /></a>
         </p>
       </div>
