@@ -291,10 +291,10 @@ html.lang-wait body {
           <h1><b data-en="Our">Nuestro</b> <span data-en="portfolio">portafolio</span></h1>
           <p style="color: var(--soft)" data-en="Some of our setups and celebrations.">Algunos de nuestros montajes y celebraciones.</p>
           <div class="gallery" id="gallery">
-            <div class="tile t1"><img src="../assets/img/portafolio-images/imagen1.webp" alt="Montaje de evento de Mardeys Eventos, foto 1" data-en-alt="Mardeys Eventos event setup, photo 1" data-es-alt="Montaje de evento de Mardeys Eventos, foto 1" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentNode.remove()" /></div>
-            <div class="tile t2"><img src="../assets/img/portafolio-images/imagen2.webp" alt="Montaje de evento de Mardeys Eventos, foto 2" data-en-alt="Mardeys Eventos event setup, photo 2" data-es-alt="Montaje de evento de Mardeys Eventos, foto 2" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentNode.remove()" /></div>
-            <div class="tile t3"><img src="../assets/img/portafolio-images/imagen3.webp" alt="Montaje de evento de Mardeys Eventos, foto 3" data-en-alt="Mardeys Eventos event setup, photo 3" data-es-alt="Montaje de evento de Mardeys Eventos, foto 3" width="720" height="900" decoding="async" loading="eager" onerror="this.parentNode.remove()" /></div>
-            <div class="tile t4"><img src="../assets/img/portafolio-images/imagen4.webp" alt="Montaje de evento de Mardeys Eventos, foto 4" data-en-alt="Mardeys Eventos event setup, photo 4" data-es-alt="Montaje de evento de Mardeys Eventos, foto 4" width="720" height="900" decoding="async" loading="eager" onerror="this.parentNode.remove()" /></div>
+            <div class="tile t1"><img src="../assets/img/portafolio-images/imagen1-800.webp" srcset="../assets/img/portafolio-images/imagen1-400.webp 400w, ../assets/img/portafolio-images/imagen1-800.webp 800w" sizes="(min-width:1000px) 25vw, (min-width:700px) 33vw, 50vw" alt="Montaje de evento de Mardeys Eventos, foto 1" data-en-alt="Mardeys Eventos event setup, photo 1" data-es-alt="Montaje de evento de Mardeys Eventos, foto 1" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentNode.remove()" /></div>
+            <div class="tile t2"><img src="../assets/img/portafolio-images/imagen2-800.webp" srcset="../assets/img/portafolio-images/imagen2-400.webp 400w, ../assets/img/portafolio-images/imagen2-800.webp 800w" sizes="(min-width:1000px) 25vw, (min-width:700px) 33vw, 50vw" alt="Montaje de evento de Mardeys Eventos, foto 2" data-en-alt="Mardeys Eventos event setup, photo 2" data-es-alt="Montaje de evento de Mardeys Eventos, foto 2" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentNode.remove()" /></div>
+            <div class="tile t3"><img src="../assets/img/portafolio-images/imagen3-800.webp" srcset="../assets/img/portafolio-images/imagen3-400.webp 400w, ../assets/img/portafolio-images/imagen3-800.webp 800w" sizes="(min-width:1000px) 25vw, (min-width:700px) 33vw, 50vw" alt="Montaje de evento de Mardeys Eventos, foto 3" data-en-alt="Mardeys Eventos event setup, photo 3" data-es-alt="Montaje de evento de Mardeys Eventos, foto 3" width="720" height="900" decoding="async" loading="eager" onerror="this.parentNode.remove()" /></div>
+            <div class="tile t4"><img src="../assets/img/portafolio-images/imagen4-800.webp" srcset="../assets/img/portafolio-images/imagen4-400.webp 400w, ../assets/img/portafolio-images/imagen4-800.webp 800w" sizes="(min-width:1000px) 25vw, (min-width:700px) 33vw, 50vw" alt="Montaje de evento de Mardeys Eventos, foto 4" data-en-alt="Mardeys Eventos event setup, photo 4" data-es-alt="Montaje de evento de Mardeys Eventos, foto 4" width="720" height="900" decoding="async" loading="eager" onerror="this.parentNode.remove()" /></div>
           </div>
           <p class="gal-empty" id="galEmpty" hidden></p>
           <script>
@@ -312,6 +312,7 @@ html.lang-wait body {
                 alive = N - 4;
               function fail(im, t) {
                 var k = +im.dataset.k + 1;
+                im.removeAttribute("srcset");
                 if (k < exts.length) {
                   im.dataset.k = k;
                   im.src = base + im.dataset.n + "." + exts[k];
@@ -342,7 +343,9 @@ html.lang-wait body {
                 im.onerror = (function (im, t) {
                   return function () { fail(im, t); };
                 })(im, t);
-                im.src = base + n + ".webp";
+                im.sizes = "(min-width:1000px) 25vw, (min-width:700px) 33vw, 50vw";
+                im.srcset = base + n + "-400.webp 400w, " + base + n + "-800.webp 800w";
+                im.src = base + n + "-800.webp";
                 t.appendChild(im);
                 f.appendChild(t);
               }
