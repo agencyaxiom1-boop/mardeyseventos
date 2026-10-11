@@ -287,61 +287,55 @@ html.lang-wait body {
           <div class="gallery" id="gallery"></div>
           <p class="gal-empty" id="galEmpty" hidden></p>
           <script>
-            /* Busca imagen1.webp ... imagen32.webp en assets/img/portafolio-images/ y muestra solo las que existen, todas a la vez */
+            /* Crea las fotos imagen1.webp ... imagenN.webp con carga diferida (lazy):
+               solo se descargan las que el visitante está por ver. */
             (function () {
-              var N = 32,
+              var N = 32, /* <-- pon aquí el número real de fotos que tienes */
                 base = "../assets/img/portafolio-images/imagen",
                 exts = ["webp", "jpg", "jpeg", "png"],
                 ES = "Montaje de evento de Mardeys Eventos, foto ",
-                EN = "Mardeys Eventos event setup, photo ";
-              function load(n) {
-                return new Promise(function (ok) {
-                  var k = 0;
-                  (function next() {
-                    if (k >= exts.length) return ok(null);
-                    var im = new Image();
-                    im.onload = function () {
-                      ok(im);
-                    };
-                    im.onerror = next;
-                    im.src = base + n + "." + exts[k++];
-                  })();
-                });
-              }
-              var jobs = [];
-              for (var i = 1; i <= N; i++) jobs.push(load(i));
-              Promise.all(jobs).then(function (list) {
-                var g = document.getElementById("gallery"),
-                  f = document.createDocumentFragment(),
-                  en = document.documentElement.lang === "en",
-                  found = 0;
-                list.forEach(function (im, k) {
-                  if (!im) return;
-                  found++;
-                  var n = k + 1,
-                    t = document.createElement("div");
-                  t.className = "tile t" + (((n - 1) % 4) + 1);
-                  im.dataset.esAlt = ES + n;
-                  im.dataset.enAlt = EN + n;
-                  im.setAttribute("data-en-alt", EN + n);
-                  im.alt = (en ? EN : ES) + n;
-                  im.width = 720;
-                  im.height = 900;
-                  t.appendChild(im);
-                  f.appendChild(t);
-                });
-                g.appendChild(f);
-                if (!found) {
-                  var e = document.getElementById("galEmpty"),
-                    url = new URL(base + "1.webp", location.href).href;
-                  e.innerHTML =
-                    "No se encontraron fotos. Guárdalas como <b>imagen1.webp</b>, <b>imagen2.webp</b>… en la carpeta <b>assets/img/portafolio-images/</b>.<br><small>Buscando: " +
-                    url +
-                    "</small>";
+                EN = "Mardeys Eventos event setup, photo ",
+                g = document.getElementById("gallery"),
+                f = document.createDocumentFragment(),
+                en = document.documentElement.lang === "en",
+                alive = N;
+              function fail(im, t) {
+                var k = +im.dataset.k + 1;
+                if (k < exts.length) {
+                  im.dataset.k = k;
+                  im.src = base + im.dataset.n + "." + exts[k];
+                  return;
+                }
+                t.remove();
+                if (--alive === 0) {
+                  var e = document.getElementById("galEmpty");
+                  e.innerHTML = "No se encontraron fotos en <b>assets/img/portafolio-images/</b>.";
                   e.hidden = false;
                   g.style.minHeight = "0";
                 }
-              });
+              }
+              for (let n = 1; n <= N; n++) {
+                var t = document.createElement("div"),
+                  im = new Image();
+                t.className = "tile t" + (((n - 1) % 4) + 1);
+                im.dataset.n = n;
+                im.dataset.k = 0;
+                im.dataset.esAlt = ES + n;
+                im.dataset.enAlt = EN + n;
+                im.setAttribute("data-en-alt", EN + n);
+                im.alt = (en ? EN : ES) + n;
+                im.width = 720;
+                im.height = 900;
+                im.decoding = "async";
+                im.loading = n <= 4 ? "eager" : "lazy";
+                im.onerror = (function (im, t) {
+                  return function () { fail(im, t); };
+                })(im, t);
+                im.src = base + n + ".webp";
+                t.appendChild(im);
+                f.appendChild(t);
+              }
+              g.appendChild(f);
             })();
           </script>
           <p style="margin-top: 30px"><a class="btn" href="https://www.instagram.com/mardeyseventos/" target="_blank" rel="noopener" data-en="See more on Instagram">Ver más en Instagram</a></p>
