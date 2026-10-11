@@ -284,7 +284,12 @@ html.lang-wait body {
         <div class="wrap">
           <h1><b data-en="Our">Nuestro</b> <span data-en="portfolio">portafolio</span></h1>
           <p style="color: var(--soft)" data-en="Some of our setups and celebrations.">Algunos de nuestros montajes y celebraciones.</p>
-          <div class="gallery" id="gallery"></div>
+          <div class="gallery" id="gallery">
+            <div class="tile t1"><img src="../assets/img/portafolio-images/imagen1.webp" alt="Montaje de evento de Mardeys Eventos, foto 1" data-en-alt="Mardeys Eventos event setup, photo 1" data-es-alt="Montaje de evento de Mardeys Eventos, foto 1" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentNode.remove()" /></div>
+            <div class="tile t2"><img src="../assets/img/portafolio-images/imagen2.webp" alt="Montaje de evento de Mardeys Eventos, foto 2" data-en-alt="Mardeys Eventos event setup, photo 2" data-es-alt="Montaje de evento de Mardeys Eventos, foto 2" width="720" height="900" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentNode.remove()" /></div>
+            <div class="tile t3"><img src="../assets/img/portafolio-images/imagen3.webp" alt="Montaje de evento de Mardeys Eventos, foto 3" data-en-alt="Mardeys Eventos event setup, photo 3" data-es-alt="Montaje de evento de Mardeys Eventos, foto 3" width="720" height="900" decoding="async" loading="eager" onerror="this.parentNode.remove()" /></div>
+            <div class="tile t4"><img src="../assets/img/portafolio-images/imagen4.webp" alt="Montaje de evento de Mardeys Eventos, foto 4" data-en-alt="Mardeys Eventos event setup, photo 4" data-es-alt="Montaje de evento de Mardeys Eventos, foto 4" width="720" height="900" decoding="async" loading="eager" onerror="this.parentNode.remove()" /></div>
+          </div>
           <p class="gal-empty" id="galEmpty" hidden></p>
           <script>
             /* Crea las fotos imagen1.webp ... imagenN.webp con carga diferida (lazy):
@@ -298,7 +303,7 @@ html.lang-wait body {
                 g = document.getElementById("gallery"),
                 f = document.createDocumentFragment(),
                 en = document.documentElement.lang === "en",
-                alive = N;
+                alive = N - 4;
               function fail(im, t) {
                 var k = +im.dataset.k + 1;
                 if (k < exts.length) {
@@ -314,7 +319,7 @@ html.lang-wait body {
                   g.style.minHeight = "0";
                 }
               }
-              for (let n = 1; n <= N; n++) {
+              for (let n = 5; n <= N; n++) {
                 var t = document.createElement("div"),
                   im = new Image();
                 t.className = "tile t" + (((n - 1) % 4) + 1);
@@ -327,7 +332,7 @@ html.lang-wait body {
                 im.width = 720;
                 im.height = 900;
                 im.decoding = "async";
-                im.loading = n <= 4 ? "eager" : "lazy";
+                im.loading = "lazy";
                 im.onerror = (function (im, t) {
                   return function () { fail(im, t); };
                 })(im, t);
