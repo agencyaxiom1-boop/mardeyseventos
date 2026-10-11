@@ -37,7 +37,540 @@
 @font-face{font-family:"Nunito";font-style:normal;font-weight:400 700;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofIO-aBXso.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"Nunito";font-style:normal;font-weight:400 700;font-display:swap;src:url(https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaB.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
     </style>
-    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+/* Contenido de assets/style.css incrustado en esta página (evita una petición que bloquea el renderizado) */
+:root {
+  --bg: #fffaf8;
+  --ink: #3b2d30;
+  --soft: #7a6a6d;
+  --rose: #b4636f;
+  --blush: #f7e4e5;
+  --gold: #b8935f;
+  --line: #ecd9d6;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    16px/1.6 "Nunito",
+    system-ui,
+    sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+h1 {
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+}
+h1 b {
+  font-weight: 700;
+}
+h1 span {
+  font-weight: 300;
+  font-style: italic;
+  color: var(--rose);
+}
+h2 {
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+}
+h3 {
+  font-size: 1.5rem;
+}
+a {
+  color: inherit;
+}
+img {
+  max-width: 100%;
+}
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  padding: 14px 0;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px 8px 24px;
+}
+.logo {
+  font:
+    italic 600 1.7rem "Cormorant Garamond",
+    serif;
+  color: var(--rose);
+  text-decoration: none;
+}
+.nav ul {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav li a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.nav li a:hover,
+.nav li a[aria-current] {
+  background: var(--blush);
+  color: var(--rose);
+}
+.burger {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.7rem;
+  color: var(--rose);
+  cursor: pointer;
+}
+@media (max-width: 760px) {
+  .burger {
+    display: block;
+  }
+  .nav ul {
+    display: none;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 72px;
+    flex-direction: column;
+    background: #fff;
+    border: 2px solid var(--line);
+    border-radius: 28px;
+    padding: 10px;
+  }
+  .nav ul.open {
+    display: flex;
+  }
+}
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0;
+}
+.pill {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.btn {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--rose);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 0;
+  font:
+    700 1rem "Nunito",
+    sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn.alt {
+  background: #fff;
+  color: var(--rose);
+  border: 2px solid var(--rose);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 30px;
+  align-items: center;
+  padding: 20px 0 0;
+}
+.hero p {
+  max-width: 46ch;
+  color: var(--soft);
+  font-size: 1.1rem;
+}
+.photo {
+  min-height: 420px;
+  border-radius: 50% 50% 0 0/38% 38% 0 0;
+  background:
+    url(../assets/img/hero.jpg) center/cover,
+    linear-gradient(160deg, #f3cfd3, #f9ece6 55%, #e9d3b6);
+  display: grid;
+  place-items: center;
+  font-size: 5rem;
+}
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .photo {
+    min-height: 320px;
+  }
+}
+section {
+  padding: 64px 0;
+}
+.tint {
+  background: var(--blush);
+}
+.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.card {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 26px;
+  padding: 26px;
+}
+.card .ic {
+  font-size: 2rem;
+}
+.card p {
+  color: var(--soft);
+  margin: 0;
+}
+.tile {
+  aspect-ratio: 4/5;
+  border-radius: 26px;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  color: #fff;
+  font:
+    600 1.3rem "Cormorant Garamond",
+    serif;
+  background-size: cover;
+  background-position: center;
+}
+.t1 {
+  background-image:
+    linear-gradient(transparent 40%, #0006), linear-gradient(150deg, #e5b7bd, #f6e3e4);
+}
+.t2 {
+  background-image:
+    linear-gradient(transparent 40%, #0006), linear-gradient(150deg, #b9c9b0, #eef2e6);
+}
+.t3 {
+  background-image:
+    linear-gradient(transparent 40%, #0006), linear-gradient(150deg, #d9c19a, #f6ead6);
+}
+.t4 {
+  background-image:
+    linear-gradient(transparent 40%, #0006), linear-gradient(150deg, #a9b8d6, #e6ecf7);
+}
+.steps {
+  counter-reset: s;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.steps li {
+  counter-increment: s;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.steps li::before {
+  content: counter(s);
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--rose);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+form {
+  display: grid;
+  gap: 14px;
+}
+label {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  font: inherit;
+  background: #fff;
+  color: var(--ink);
+}
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+@media (max-width: 760px) {
+  .two {
+    grid-template-columns: 1fr;
+  }
+}
+footer {
+  background: var(--ink);
+  color: #f3e6e4;
+  padding: 44px 0 90px;
+}
+footer a {
+  color: #f3e6e4;
+}
+footer .logo {
+  color: #f0c4ca;
+}
+.fab {
+  position: fixed;
+  right: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  text-decoration: none;
+  box-shadow: 0 6px 20px #b4636f40;
+  z-index: 30;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.pill svg,
+.btn svg {
+  flex: none;
+}
+
+a.pill {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.pill:hover {
+  background: var(--blush);
+}
+
+/* Insignias en una sola fila: Facebook a la izquierda, Ubicación a la derecha */
+.pills {
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin: 4px 0 16px;
+}
+
+.pill {
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .pill {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .hero {
+    gap: 0;
+  }
+
+  .hero .btn {
+    margin-bottom: -6px;
+  }
+}
+
+/* Foto de portada: el pasto (assets/img/jardin.webp) se recorta con la curva #ola */
+.hero > div:first-child {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-photo {
+  position: relative;
+  margin: -61px -20px 0;
+}
+
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  clip-path: url(#ola);
+  background:
+    url(../assets/img/jardin.webp) center bottom / cover,
+    linear-gradient(160deg, #4c9a50, #2b6b3b);
+}
+
+.hero-photo img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 76%;
+  height: auto;
+  margin-top: -18px;
+  margin-left: 24%;
+}
+
+@media (min-width: 761px) {
+  .hero-photo {
+    margin: 0;
+    border-radius: 36px 36px 0 0;
+  }
+
+  .hero-photo img {
+    width: 90%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+/* Redes sociales en el pie de página */
+.social {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid #f3e6e440;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.social a:hover {
+  background: var(--rose);
+  border-color: var(--rose);
+}
+
+/* Bordes visibles para que el borde izquierdo de menú, insignias y botón se vea alineado */
+:root {
+  --edge: #dcb5ba;
+}
+
+.nav,
+.pill {
+  border-color: var(--edge);
+}
+
+/* Escritorio: el pasto se extiende de lado a lado detrás del encabezado; la novia no se mueve */
+@media (min-width: 761px) {
+  section:has(.hero) {
+    position: relative;
+    overflow: hidden;
+  }
+  header {
+    padding-top: 32px;
+  }
+  .hero > div:first-child {
+    align-self: start;
+    margin-top: 56px;
+    min-width: 0;
+  }
+  .hero h1 {
+    font-size: clamp(3.6rem, 5.2vw, 5.1rem);
+    width: max-content;
+    max-width: 9.4em;
+  }
+  .hero p {
+    font-size: clamp(1.1rem, 1.45vw, 1.3rem);
+    max-width: 28em;
+  }
+  .hero .pills {
+    margin: 4px 0 22px;
+  }
+  .hero .pill {
+    font-size: 1rem;
+    padding: 9px 18px;
+  }
+  .hero .btn {
+    font-size: 1.15rem;
+    padding: 18px 36px;
+  }
+  .hero-photo {
+    position: static;
+  }
+  .hero-photo::before {
+    left: 0;
+    right: 0;
+    top: 20px;
+    bottom: 0;
+    clip-path: url(#ola-wide);
+  }
+}
+
+/* Pantallas grandes: todo el contenido (menú, portada, secciones, pie) comparte una misma línea izquierda,
+   24 px más a la izquierda; el borde derecho y la novia no se mueven */
+@media (min-width: 1200px) {
+  .wrap {
+    max-width: 1104px;
+    margin-left: calc(50% - 564px);
+    margin-right: auto;
+  }
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 492.68px;
+  }
+}
+    </style>
     <script>
       /* Si la foto no carga como .webp, prueba con otras extensiones y, si no existe, la oculta */
       function imgFb(i) {
