@@ -36,10 +36,19 @@
     <meta name="twitter:image" content="https://agencyaxiom1-boop.github.io/mardeyseventos/assets/img/og-image.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fuentes sin bloquear el renderizado: se cargan en segundo plano y se aplican al terminar -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,600&family=Nunito:wght@400;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,600&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <link rel="stylesheet" href="../assets/style.css" />
     <style>
 /* Botón de idioma y pie de página (igual que la portada) */
