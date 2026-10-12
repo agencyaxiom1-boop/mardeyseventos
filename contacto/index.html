@@ -178,6 +178,12 @@ html.lang-wait body { visibility: hidden; }
 .ct-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .ct-map { margin-top: 18px; border-radius: 24px; overflow: hidden; border: 1.5px solid var(--line); aspect-ratio: 4 / 3; background: var(--blush); }
 .ct-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.ct-map-load { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 0; background: var(--blush); color: #3d2a2e; font: inherit; cursor: pointer; padding: 16px; text-align: center; transition: background 0.2s; }
+.ct-map-load:hover { background: #f6e3e6; }
+.ct-map-load:focus-visible { outline: 3px solid var(--gold); outline-offset: -6px; }
+.ct-map-load svg { width: 38px; height: 38px; fill: none; stroke: var(--rose); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.ct-map-load b { font-size: 1.1rem; }
+.ct-map-load small { color: #5a4448; font-size: 0.85rem; }
 .ct-num { width: 44px; height: 44px; border-radius: 50%; background: var(--rose); color: #fff; display: grid; place-items: center; font: 700 1.1rem "Nunito", sans-serif; }
 @media (max-width: 860px) { .ct-grid { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .ct-row { grid-template-columns: 1fr; } .ct-card { padding: 22px; } }
@@ -367,8 +373,12 @@ html.lang-wait body { visibility: hidden; }
                 <a class="btn" href="https://wa.me/51999874476?text=Hola%20Mardeys%20Eventos%2C%20quiero%20cotizar%20mi%20evento" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1.3-1.3-1.8-1-.8.8c-.8-.4-1.6-1.2-2-2l.8-.8-1-1.8z"/></svg><span data-en="Chat on WhatsApp">Escribir por WhatsApp</span></a>
                 <a class="btn alt" href="https://maps.app.goo.gl/GQTiQzbimwWEMRk46" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span data-en="View location">Ver ubicación</span></a>
               </div>
-              <div class="ct-map">
-                <iframe src="https://www.google.com/maps?q=Av.+Manuel+Olgu%C3%ADn+745,+Surco,+Lima&amp;output=embed" title="Mapa" aria-label="Mapa de ubicación de Mardeys Eventos" data-en-aria="Mardeys Eventos location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="ct-map" id="ctMap">
+                <button type="button" class="ct-map-load" id="ctMapLoad">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
+                  <b data-en="Show map">Mostrar mapa</b>
+                  <small>Av. Manuel Olguín 745, Surco, Lima</small>
+                </button>
               </div>
             </div>
           </div>
@@ -513,7 +523,7 @@ html.lang-wait body { visibility: hidden; }
       <div class="wrap">
         <div class="footer-bottom">
           <p>© <span class="yr">2026</span> <span data-en="Mardeys Eventos SAC. All rights reserved.">Mardeys Eventos SAC. Todos los derechos reservados.</span></p>
-          <p class="by"><span data-en="Managed by:">Administrado por:</span> <a href="https://yapaseo.com/" target="_blank" rel="noopener" aria-label="Yapaseo"><img src="../assets/img/yapaseo.webp" alt="Yapaseo" height="28" loading="lazy" onerror="this.replaceWith(document.createTextNode('Yapaseo'))" /></a></p>
+          <p class="by"><span data-en="Managed by:">Administrado por:</span> <a href="https://yapaseo.com/" target="_blank" rel="noopener" aria-label="Yapaseo"><img src="../assets/img/yapaseo.webp" alt="Yapaseo" width="76" height="28" loading="lazy" onerror="this.replaceWith(document.createTextNode('Yapaseo'))" /></a></p>
         </div>
       </div>
     </footer>
@@ -840,6 +850,26 @@ html.lang-wait body { visibility: hidden; }
               send.disabled = false;
               send.removeAttribute("aria-busy");
             });
+        });
+      })();
+    </script>
+    <script>
+      /* El mapa de Google (~230 KiB de JS) solo se carga cuando el usuario lo pide */
+      (function () {
+        var box = document.getElementById("ctMap"),
+          btn = document.getElementById("ctMapLoad");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var en = document.documentElement.lang === "en",
+            f = document.createElement("iframe");
+          f.src = "https://www.google.com/maps?q=Av.+Manuel+Olgu%C3%ADn+745,+Surco,+Lima&output=embed";
+          f.title = en ? "Map" : "Mapa";
+          f.setAttribute("aria-label", en ? "Mardeys Eventos location map" : "Mapa de ubicación de Mardeys Eventos");
+          f.setAttribute("data-en-aria", "Mardeys Eventos location map");
+          f.setAttribute("data-es-aria", "Mapa de ubicación de Mardeys Eventos");
+          f.referrerPolicy = "no-referrer-when-downgrade";
+          box.innerHTML = "";
+          box.appendChild(f);
         });
       })();
     </script>
