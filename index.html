@@ -654,6 +654,50 @@ footer a:hover {
 .hero-photo img {
   aspect-ratio: 840 / 1260;
 }
+
+/* Celular: portada más armoniosa. Solo se ajusta el bloque de texto; la novia y el fondo no se tocan */
+@media (max-width: 760px) {
+  .hero-sec .hero > div:first-child {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 0 26px;
+  }
+  .hero-sec .hero > div:first-child .pills {
+    margin: 0;
+    gap: 10px;
+  }
+  .hero-sec .hero .pill {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+  .hero-sec .hero h2 {
+    margin: 0;
+    font-size: clamp(2rem, 9.4vw, 3.1rem) !important;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+  .hero-sec .hero h2 b {
+    font-weight: 700;
+  }
+  .hero-sec .hero > div:first-child > p:first-of-type {
+    margin: 0;
+    max-width: 100%;
+    font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+  .hero-sec .hero > div:first-child > p:last-of-type {
+    margin: 0;
+  }
+  .hero-sec .hero .btn {
+    font-size: 1rem;
+    padding: 11px 26px;
+  }
+}
       /* Texto solo para buscadores y lectores de pantalla */
       .sr-only {
         position: absolute;
