@@ -47,7 +47,7 @@
         visibility: hidden;
       }
     </style>
-    <link rel="preload" as="image" href="assets/img/novia.webp" imagesrcset="assets/img/novia-560.webp 560w, assets/img/novia.webp 840w" imagesizes="(max-width: 760px) 76vw, 520px" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/img/pareja-hero.webp" imagesrcset="assets/img/pareja-hero-560.webp 560w, assets/img/pareja-hero.webp 840w" imagesizes="(max-width: 760px) 94vw, 520px" fetchpriority="high" />
     <link rel="preload" as="image" href="assets/img/jardin.webp" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2" crossorigin />
@@ -698,6 +698,16 @@ footer a:hover {
     padding: 11px 26px;
   }
 }
+/* Celular: foto de los novios más grande (antes ocupaba el 76% del ancho), pegada al borde derecho */
+@media (max-width: 760px) {
+  .hero-sec .hero > .hero-photo img {
+    width: 94vw !important;
+    max-width: none !important;
+    height: auto;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
       /* Texto solo para buscadores y lectores de pantalla */
       .sr-only {
         position: absolute;
@@ -764,7 +774,7 @@ footer a:hover {
                   <span class="d" data-en="OF EXPERIENCE">DE EXPERIENCIA</span>
                 </div>
               </div>
-              <img src="assets/img/novia.webp" srcset="assets/img/novia-560.webp 560w, assets/img/novia.webp 840w" sizes="(max-width: 760px) 76vw, 520px" alt="Novia sonriendo con un ramo de rosas rojas y blancas" data-en-alt="Smiling bride holding a bouquet of red and white roses" width="840" height="1260" fetchpriority="high" decoding="async" />
+              <img src="assets/img/pareja-hero.webp" srcset="assets/img/pareja-hero-560.webp 560w, assets/img/pareja-hero.webp 840w" sizes="(max-width: 760px) 94vw, 520px" alt="Novios bailando abrazados y sonriéndose en su boda" data-en-alt="Newlyweds dancing close and smiling at each other at their wedding" width="840" height="1260" fetchpriority="high" decoding="async" />
             </div>
           </div>
         </div>
