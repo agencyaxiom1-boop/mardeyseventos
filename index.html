@@ -111,7 +111,7 @@
       "name": "¿En qué distritos tienen locales disponibles?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Contamos con locales disponibles en San Borja, Surco, Breña y Chorrillos. Escríbenos con tu fecha y número de invitados y te ayudamos a elegir el lugar ideal."
+        "text": "Contamos con una amplia red de más de 80 espacios para eventos en todo Lima, incluyendo locales, casas y clubes. Trabajamos en distintos distritos y te ayudamos a encontrar el espacio ideal según tu fecha, número de invitados y tipo de evento."
       }
     },
     {
@@ -127,7 +127,7 @@
       "name": "¿Cómo puedo solicitar una cotización personalizada?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Escríbenos por WhatsApp al 999 874 476 con los datos de tu evento, o llena el formulario de la página de Contacto y se abrirá WhatsApp con tu mensaje listo para enviar."
+        "text": "Trabajamos con más de 80 locales en todo Lima. Para prepararte una cotización integral, escríbenos por WhatsApp al 999 874 476 con estos datos: nombre y apellido, tipo de evento, cantidad de personas, fecha del evento, distritos en los que deseas el local y presupuesto aproximado. También puedes llenar el formulario de la página de Contacto: se abrirá WhatsApp con tu mensaje listo para enviar."
       }
     }
   ]
@@ -336,6 +336,20 @@
 .faq-item .ans p {
   margin: 0;
   color: var(--soft);
+}
+.faq-item .ans p + p {
+  margin-top: 12px;
+}
+.faq-item .ans .ans-list {
+  margin: 12px 0 14px;
+  padding-left: 22px;
+  color: var(--soft);
+}
+.faq-item .ans .ans-list li {
+  margin: 0 0 6px;
+}
+.faq-item .ans .ans-list li::marker {
+  color: var(--rose, #b4636f);
 }
 .footer-grid {
   display: grid;
@@ -841,7 +855,10 @@ footer a:hover {
           </details>
           <details class="faq-item">
             <summary><span data-en="In which districts do you have venues available?">¿En qué distritos tienen locales disponibles?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-            <div class="ans"><p data-en="We have venues available in San Borja, Surco, Breña and Chorrillos. Write to us with your date and number of guests and we will help you choose the ideal place.">Contamos con locales disponibles en San Borja, Surco, Breña y Chorrillos. Escríbenos con tu fecha y número de invitados y te ayudamos a elegir el lugar ideal.</p></div>
+            <div class="ans">
+              <p data-en="We have a wide network of more than 80 event spaces across Lima, including venues, houses and clubs.">Contamos con una amplia red de más de 80 espacios para eventos en todo Lima, incluyendo locales, casas y clubes.</p>
+              <p data-en="We work in several districts and help you find the ideal space based on your date, number of guests and type of event.">Trabajamos en distintos distritos y te ayudamos a encontrar el espacio ideal según tu fecha, número de invitados y tipo de evento.</p>
+            </div>
           </details>
           <details class="faq-item">
             <summary><span data-en="How does the process work, from the quote to the event day?">¿Cómo funciona el proceso, de la cotización al día del evento?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
@@ -849,7 +866,18 @@ footer a:hover {
           </details>
           <details class="faq-item">
             <summary><span data-en="How can I request a personalized quote?">¿Cómo puedo solicitar una cotización personalizada?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-            <div class="ans"><p data-en="Message us on WhatsApp at 999 874 476 with your event details, or fill in the form on the Contact page and WhatsApp will open with your message ready to send.">Escríbenos por WhatsApp al 999 874 476 con los datos de tu evento, o llena el formulario de la página de Contacto y se abrirá WhatsApp con tu mensaje listo para enviar.</p></div>
+            <div class="ans">
+              <p data-en="We work with more than 80 venues across Lima. To prepare a complete quote for you, message us on WhatsApp at 999 874 476 with the following details:">Para prepararte una cotización integral, escríbenos por WhatsApp al 999 874 476 con estos datos:</p>
+              <ul class="ans-list">
+                <li data-en="Full name">Nombre y apellido</li>
+                <li data-en="Type of event">Tipo de evento</li>
+                <li data-en="Number of guests">Cantidad de personas</li>
+                <li data-en="Event date">Fecha del evento</li>
+                <li data-en="Districts where you would like the venue">Distritos en los que deseas el local</li>
+                <li data-en="Approximate budget">Presupuesto aproximado</li>
+              </ul>
+              <p class="ans-note" data-en="You can also fill in the form on the Contact page: WhatsApp will open with your message ready to send.">También puedes llenar el formulario de la página de Contacto: podras mandar un correo o se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+            </div>
           </details>
           </div>
         </div>
