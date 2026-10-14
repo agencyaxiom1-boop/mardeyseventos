@@ -9,7 +9,7 @@
     <script>
       /* Evita el parpadeo español -> inglés al cargar */
       try {
-        var l = localStorage.getItem("lang") || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
+        var l = localStorage.getItem("lang") || "es";
         if (l === "en") {
           document.documentElement.classList.add("lang-wait");
           setTimeout(function () {
@@ -19,7 +19,9 @@
       } catch (e) {}
     </script>
     <link rel="canonical" href="https://mardeyseventos.com/portafolio/" />
-    <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+    <link rel="icon" href="../favicon.ico" sizes="48x48" />
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
     <!-- Vista previa al compartir el enlace. Al publicar con el dominio final, cambia https://agencyaxiom1-boop.github.io/mardeyseventos/ por https://mardeyseventos.com/ -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mardeys Eventos" />
@@ -565,7 +567,7 @@ html.lang-wait body {
         try {
           saved = localStorage.getItem("lang");
         } catch (e) {}
-        var lang = saved || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
+        var lang = saved || "es"; /* Español por defecto; el inglés solo se activa si la persona pulsa el botón EN */
         if (lang === "en") apply("en", false);
         D.documentElement.classList.remove("lang-wait");
         btn.addEventListener("click", function () {

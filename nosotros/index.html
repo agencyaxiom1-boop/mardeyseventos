@@ -6,7 +6,9 @@
     <title>Nosotros | Empresa de organización de eventos en Surco, Lima | Mardeys Eventos</title>
     <meta name="description" content="Conoce a Mardeys Eventos SAC, empresa de organización de eventos en Surco, Lima, Perú: bodas, quinceañeras y celebraciones con servicio completo." />
     <meta name="theme-color" content="#b4636f" />
-    <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+    <link rel="icon" href="../favicon.ico" sizes="48x48" />
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
     <!-- Vista previa al compartir el enlace (WhatsApp, Facebook, etc.). Al publicar con el dominio final, cambia https://agencyaxiom1-boop.github.io/mardeyseventos/ por https://mardeyseventos.com/ -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mardeys Eventos" />
@@ -1224,7 +1226,7 @@ h2.hl span.plain {
         try {
           saved = localStorage.getItem("lang");
         } catch (e) {}
-        var lang = saved || ((navigator.language || "es").toLowerCase().indexOf("en") === 0 ? "en" : "es");
+        var lang = saved || "es"; /* Español por defecto; el inglés solo se activa si la persona pulsa el botón EN */
         if (lang === "en") apply("en", false);
         btn.addEventListener("click", function () {
           lang = lang === "en" ? "es" : "en";
